@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="./">
+    <title>第一章：基础与资产准备</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/highlight.css">
+    <script src="assets/script.js" defer></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: false,
+                packages: {'[+]': ['noerrors', 'ams']}
+            },
+            options: {
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            },
+            loader: {
+                load: ['[tex]/noerrors', '[tex]/ams']
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h3>目录</h3>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="sidebar-search">
+                <input type="text" id="sidebar-search-input" placeholder="搜索..." autocomplete="off">
+            </div>
+            <div id="tree-container">
+                <nav class="tree-nav" role="tree">
+                    <div class="tree-item " >
+                        <a href="index.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">原神风格打斗动画完全教程</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item active" >
+                        <a href="chapter1.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第一章：基础与资产准备</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter2.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第二章：动作捕捉与视频分析</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter3.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第三章：动画打磨与时间控制</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter4.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第四章：运镜与构图</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter5.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第五章：打击感与爽感营造</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter6.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第六章：高级技巧与整体打磨</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter7.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第七章：综合项目 - 圣遗物秘境战斗场景</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter8.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第八章：元素反应视效系统 - 华丽与性能的平衡</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter9.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第九章：女性角色建模与动画</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter10.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第十章：男性角色建模与动画</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter11.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第十一章：角色声线与音效设计</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="CLAUDE.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">Untitled</span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </nav>
+        
+        <main class="content">
+            <article>
+                <h1 id="_1">第一章：基础与资产准备</h1>
+<h2 id="_2">章节概述</h2>
+<p>在制作高质量的战斗动画之前，扎实的基础准备工作至关重要。本章将带你建立规范的项目结构，准备符合专业标准的角色模型、武器道具，并搭建高效的资产管理系统。这些看似枯燥的准备工作，将为后续的动画制作打下坚实基础，让你的工作流程更加顺畅高效。</p>
+<p><strong>学习目标：</strong></p>
+<ul>
+<li>掌握动画项目的标准文件组织结构</li>
+<li>理解角色模型的技术规范和优化要点</li>
+<li>学会制作符合动画需求的武器和道具</li>
+<li>建立统一的材质贴图工作流程</li>
+<li>构建可复用的资产库系统</li>
+</ul>
+<h2 id="1">1. 项目架构与文件管理</h2>
+<h3 id="11">1.1 标准项目结构</h3>
+<p>一个专业的战斗动画项目需要清晰的文件组织结构。混乱的文件管理会严重影响制作效率，特别是在团队协作时。原神这样的大型项目，往往涉及数百个角色、上千个动画文件，没有良好的组织结构，寻找一个特定文件都会变成噩梦。</p>
+<p>项目结构设计需要考虑几个核心原则：</p>
+<ul>
+<li><strong>可扩展性</strong>：随着项目发展，能够容纳更多资产而不破坏原有结构</li>
+<li><strong>可查找性</strong>：任何团队成员都能快速定位所需文件</li>
+<li><strong>版本隔离</strong>：不同版本的文件能够共存而不产生冲突</li>
+<li><strong>依赖清晰</strong>：资产间的引用关系一目了然</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>project_root/
+├── assets/              # 资产文件夹
+│   ├── characters/      # 角色模型
+│   │   ├── hero/       # 主角
+│   │   ├── enemies/    # 敌人
+│   │   └── npcs/       # NPC
+│   ├── weapons/        # 武器
+│   ├── props/          # 道具
+│   ├── environments/   # 环境
+│   └── fx/            # 特效资产
+├── animations/         # 动画文件
+│   ├── mocap_raw/     # 原始动捕数据
+│   ├── cleaned/       # 清理后的动画
+│   └── final/         # 最终动画
+├── scenes/            # 场景文件
+├── renders/           # 渲染输出
+└── references/        # 参考资料
+</code></pre></div>
+
+<h3 id="12">1.2 命名规范</h3>
+<p>统一的命名规范是团队协作的基础，也是自动化流程的前提。一个好的命名系统应该让人一眼就能理解文件的内容、版本和用途。在原神这样的项目中，每个角色都有数十个动作，如果没有清晰的命名，很容易出现覆盖、丢失或使用错误版本的情况。</p>
+<p><strong>命名的核心要素：</strong></p>
+<ol>
+<li><strong>类型标识</strong>：明确资产类型（角色、武器、动画等）</li>
+<li><strong>内容描述</strong>：具体的名称或动作类型</li>
+<li><strong>变体标记</strong>：区分不同版本或状态</li>
+<li><strong>序号管理</strong>：处理同类型的多个资产</li>
+</ol>
+<p>统一的命名规范能避免很多不必要的麻烦：</p>
+<ul>
+<li><strong>角色</strong>：<code>char_[类型]_[名称]_[版本]</code></li>
+<li>例：<code>char_hero_traveler_v02.blend</code></li>
+<li><strong>动画</strong>：<code>anim_[角色]_[动作类型]_[编号]</code></li>
+<li>例：<code>anim_traveler_attack_combo_01.blend</code></li>
+<li><strong>武器</strong>：<code>weap_[类型]_[名称]</code></li>
+<li>例：<code>weap_sword_dullblade.blend</code></li>
+</ul>
+<h3 id="13">1.3 版本控制策略</h3>
+<p>版本控制不仅仅是Git的事情，在3D制作中还需要考虑文件体积、二进制格式、外部依赖等特殊问题。一个角色模型动辄几十MB，贴图文件更是以GB计算，传统的版本控制系统难以应对。</p>
+<p><strong>3D项目版本控制的特殊挑战：</strong></p>
+<ul>
+<li><strong>文件体积巨大</strong>：单个.blend文件可能超过100MB</li>
+<li><strong>二进制格式</strong>：无法进行文本对比和合并</li>
+<li><strong>外部依赖复杂</strong>：贴图、缓存、参考文件相互关联</li>
+<li><strong>实时协作需求</strong>：多人同时工作在相关资产上</li>
+</ul>
+<p><strong>实用的版本管理策略：</strong></p>
+<ul>
+<li><strong>增量保存</strong>：每个重要修改保存新版本</li>
+<li>使用<code>_v01, _v02</code>后缀递增</li>
+<li>重大改动使用<code>_v10, _v20</code>区分</li>
+<li>
+<p>实验性修改使用<code>_test, _backup</code>标记</p>
+</li>
+<li>
+<p><strong>里程碑备份</strong>：关键节点创建独立备份</p>
+</li>
+<li>客户审核前：<code>_for_review</code></li>
+<li>获得批准后：<code>_approved</code></li>
+<li>发布版本：<code>_final</code></li>
+<li>
+<p>归档版本：<code>_archive</code></p>
+</li>
+<li>
+<p><strong>缓存管理</strong>：定期清理缓存文件避免项目臃肿</p>
+</li>
+<li>Alembic缓存：动画烘焙数据</li>
+<li>物理缓存：布料、毛发模拟</li>
+<li>渲染缓存：预览和测试渲染</li>
+</ul>
+<p><strong>Git LFS配置示例：</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="gh">#</span> .gitattributes
+*.blend filter=lfs diff=lfs merge=lfs -text
+<span class="gs">*.fbx filter=lfs diff=lfs merge=lfs -text</span>
+<span class="gs">*</span>.tga filter=lfs diff=lfs merge=lfs -text
+*.exr filter=lfs diff=lfs merge=lfs -text
+</code></pre></div>
+
+<h2 id="2">2. 角色模型规范</h2>
+<h3 id="21">2.1 拓扑要求</h3>
+<p>良好的拓扑是动画变形的基础。战斗动画对模型拓扑要求特别高，因为会有大量的极限动作。原神中的角色需要执行各种华丽的招式：回旋斩、空翻、极限扭转，每一个动作都在考验模型的拓扑质量。</p>
+<p><strong>拓扑设计的核心原则：</strong></p>
+<ol>
+<li><strong>边流跟随肌肉</strong>：边线的走向应该顺应真实的肌肉纹理</li>
+<li><strong>关节处环形布线</strong>：确保弯曲时的自然变形</li>
+<li><strong>密度渐变</strong>：从高活动区域到低活动区域平滑过渡</li>
+<li><strong>避免极点</strong>：5边以上的极点会造成变形问题</li>
+<li><strong>四边形为主</strong>：三角形仅在必要时使用</li>
+</ol>
+<p><strong>不同部位的拓扑策略：</strong></p>
+<p><strong>面部拓扑（如需要表情）：</strong></p>
+<ul>
+<li>眼睛周围：放射状布线，支持眯眼、瞪眼</li>
+<li>嘴部：环形布线，支持各种口型</li>
+<li>额头：横向边流，支持皱眉表情</li>
+<li>脸颊：斜向边流，支持笑容变形</li>
+</ul>
+<p><strong>躯干拓扑：</strong></p>
+<ul>
+<li>胸部：环形+纵向混合，支持呼吸和扭转</li>
+<li>腹部：横向为主，支持弯腰动作</li>
+<li>背部：纵向边流跟随脊椎</li>
+<li>腰部：环形边确保扭转自然</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>      肩部拓扑示例
+    ╱────┬────╲
+   ╱  ╱──┼──╲  ╲
+  │  ╱   │   ╲  │
+  │ │    │    │ │
+  └─┴────┴────┴─┘
+
+  环形边流保证变形
+</code></pre></div>
+
+<p><strong>关键区域的拓扑密度：</strong></p>
+<p>战斗动画中，关节是最容易出问题的地方。密度不足会导致尖锐的折痕，密度过高又会增加不必要的性能负担。以下是经过大量实践验证的密度建议：</p>
+<ul>
+<li><strong>肩部：至少3圈环形边</strong></li>
+<li>内圈：锁骨连接处</li>
+<li>中圈：三角肌区域</li>
+<li>外圈：手臂连接处</li>
+<li>
+<p>额外：肩胛骨区域需要2-3条斜向支撑边</p>
+</li>
+<li>
+<p><strong>肘部：2-3圈环形边</strong></p>
+</li>
+<li>关节前：防止极限弯曲时穿模</li>
+<li>关节点：保证旋转中心稳定</li>
+<li>
+<p>关节后：支持手臂伸直时的自然过渡</p>
+</li>
+<li>
+<p><strong>膝盖：2-3圈环形边</strong></p>
+</li>
+<li>膝盖骨上方：支持大腿肌肉变形</li>
+<li>膝盖骨位置：保证弯曲时的体积感</li>
+<li>
+<p>膝盖骨下方：小腿连接的过渡</p>
+</li>
+<li>
+<p><strong>脊椎：每个关节2圈边</strong></p>
+</li>
+<li>颈椎（C1-C7）：支持头部大幅度转动</li>
+<li>胸椎（T1-T12）：主要负责上身扭转</li>
+<li>
+<p>腰椎（L1-L5）：核心弯曲区域，可适当增加到3圈</p>
+</li>
+<li>
+<p><strong>手腕：2圈环形边+手表线</strong></p>
+</li>
+<li>手表线：手腕中部的环形边，关键的旋转支撑</li>
+<li>
+<p>前后各一圈：保证手腕弯曲的平滑过渡</p>
+</li>
+<li>
+<p><strong>脚踝：2-3圈环形边</strong></p>
+</li>
+<li>跟腱位置：需要额外的纵向支撑</li>
+<li>脚踝骨：左右各需要环形支撑</li>
+</ul>
+<h3 id="22">2.2 骨骼系统设计</h3>
+<p>骨骼系统是角色动画的灵魂。原神的角色骨骼设计需要在表现力和性能之间找到完美平衡。过少的骨骼会限制动作表现，过多的骨骼则会增加动画师的工作量和引擎的计算负担。</p>
+<p><strong>骨骼设计的层次结构：</strong></p>
+<ol>
+<li><strong>主骨骼链</strong>：构成角色的基本运动框架</li>
+<li><strong>辅助骨骼</strong>：增强特定部位的表现力</li>
+<li><strong>装饰骨骼</strong>：控制衣物、饰品等附加元素</li>
+<li><strong>特效骨骼</strong>：用于绑定特效和武器</li>
+</ol>
+<p>原神风格的角色通常采用以下骨骼结构：</p>
+<div class="codehilite"><pre><span></span><code>        头部
+          │
+        颈部
+          │
+    ┌────脊椎────┐
+    │            │
+  左臂          右臂
+    │            │
+  左手          右手
+    │
+   骨盆
+    │
+  ┌─┴─┐
+左腿  右腿
+  │    │
+左脚  右脚
+</code></pre></div>
+
+<p><strong>骨骼命名规范：</strong></p>
+<p>清晰的骨骼命名不仅方便动画师工作，更是自动化工具和脚本的基础。原神项目中可能有上百个角色，如果每个角色的骨骼命名都不一样，动画复用和批处理将变得极其困难。</p>
+<p><strong>基础命名规则：</strong></p>
+<ul>
+<li>使用<code>.L</code>和<code>.R</code>后缀区分左右（注意是大写）</li>
+<li>使用下划线分隔单词：<code>upper_arm</code>而非<code>upperArm</code></li>
+<li>使用数字标记序列：<code>01, 02, 03</code>（保持两位数）</li>
+<li>避免空格和特殊字符</li>
+</ul>
+<p><strong>详细命名对照表：</strong></p>
+<p>脊椎链：</p>
+<ul>
+<li><code>root</code> - 根骨骼（世界空间控制）</li>
+<li><code>pelvis</code> - 骨盆（重心控制）</li>
+<li><code>spine_01</code> - 腰椎下段</li>
+<li><code>spine_02</code> - 腰椎上段</li>
+<li><code>spine_03</code> - 胸椎下段</li>
+<li><code>spine_04</code> - 胸椎上段（可选）</li>
+<li><code>neck_01</code> - 颈部</li>
+<li><code>head</code> - 头部</li>
+</ul>
+<p>手臂链：</p>
+<ul>
+<li><code>clavicle.L/R</code> - 锁骨</li>
+<li><code>upper_arm.L/R</code> - 上臂</li>
+<li><code>forearm.L/R</code> - 前臂</li>
+<li><code>hand.L/R</code> - 手掌</li>
+</ul>
+<p>手指（以左手为例）：</p>
+<ul>
+<li><code>thumb_01.L</code> → <code>thumb_02.L</code> → <code>thumb_03.L</code></li>
+<li><code>finger_index_01.L</code> → <code>finger_index_02.L</code> → <code>finger_index_03.L</code></li>
+<li><code>finger_middle_01.L</code> → <code>finger_middle_02.L</code> → <code>finger_middle_03.L</code></li>
+<li><code>finger_ring_01.L</code> → <code>finger_ring_02.L</code> → <code>finger_ring_03.L</code></li>
+<li><code>finger_pinky_01.L</code> → <code>finger_pinky_02.L</code> → <code>finger_pinky_03.L</code></li>
+</ul>
+<p>腿部链：</p>
+<ul>
+<li><code>thigh.L/R</code> - 大腿</li>
+<li><code>shin.L/R</code> - 小腿</li>
+<li><code>foot.L/R</code> - 脚掌</li>
+<li><code>toe.L/R</code> - 脚趾</li>
+</ul>
+<p>特殊骨骼：</p>
+<ul>
+<li><code>weapon_r</code> - 右手武器挂点</li>
+<li><code>weapon_l</code> - 左手武器挂点</li>
+<li><code>weapon_back</code> - 背部武器挂点</li>
+<li><code>fx_chest</code> - 胸部特效挂点</li>
+<li><code>fx_hand_r</code> - 右手特效挂点</li>
+</ul>
+<h3 id="23">2.3 权重绘制技巧</h3>
+<p>权重绘制是角色绑定中最耗时也最关键的环节。一个精心调整的权重可以让角色在极限动作下依然保持优雅，而糟糕的权重会让最简单的动作都显得僵硬不自然。原神的角色动作幅度大、速度快，对权重质量要求极高。</p>
+<p><strong>权重绘制的核心原则：</strong></p>
+<ol>
+<li><strong>渐变原则</strong>：权重过渡必须平滑，避免突变</li>
+<li><strong>体积保持</strong>：关节弯曲时不应该失去体积感</li>
+<li><strong>对称性</strong>：左右对称部位的权重应该镜像一致</li>
+<li><strong>层次分明</strong>：主要影响、次要影响、辅助影响清晰区分</li>
+</ol>
+<p><strong>肩部权重分布（最复杂的区域）：</strong></p>
+<p>肩部是人体活动范围最大的关节，也是权重绘制最难的部位：</p>
+<ul>
+<li><strong>上臂骨：主要影响区域（70-85%）</strong></li>
+<li>三角肌区域：100%权重</li>
+<li>肩头区域：85-95%权重</li>
+<li>
+<p>上臂上段：95-100%权重</p>
+</li>
+<li>
+<p><strong>锁骨：辅助影响，平滑过渡（10-25%）</strong></p>
+</li>
+<li>肩峰区域：15-25%权重</li>
+<li>前胸上部：10-20%权重</li>
+<li>
+<p>助力手臂抬起时的肩部提升</p>
+</li>
+<li>
+<p><strong>脊椎：少量影响，保持连续性（5-15%）</strong></p>
+</li>
+<li>肩胛骨周围：5-10%权重</li>
+<li>背部上段：5-15%权重</li>
+<li>确保躯干和手臂的自然过渡</li>
+</ul>
+<p><strong>其他关键部位的权重策略：</strong></p>
+<p><strong>肘部权重：</strong></p>
+<ul>
+<li>前臂骨：主导，覇盖肘关节前后</li>
+<li>上臂骨：过渡区域，避免断层</li>
+<li>扭转骨（如果有）：处理前臂旋转</li>
+</ul>
+<p><strong>膝盖权重：</strong></p>
+<ul>
+<li>小腿骨：主导，特别是膝盖骨区域</li>
+<li>大腿骨：过渡，保证弯曲时的圆滑</li>
+<li>膝盖辅助骨（可选）：增强膝盖的体积感</li>
+</ul>
+<p><strong>手指权重：</strong></p>
+<ul>
+<li>每节手指骨单独控制对应指节</li>
+<li>指根处需要和手掌有少量混合</li>
+<li>避免指间相互影响</li>
+</ul>
+<p><strong>常见权重问题及解决方案：</strong></p>
+<ol>
+<li>
+<p><strong>关节处出现"糖果纸"扭曲</strong>
+   - 原因：权重在关节处过于集中
+   - 解决：增加环形边，分散权重影响
+   - 预防：使用双骨骼或辅助骨骼</p>
+</li>
+<li>
+<p><strong>极限姿势下的穿模</strong>
+   - 原因：权重分布不合理或模型拓扑不足
+   - 解决：使用校正骨骼或形态键辅助
+   - 预防：在权重绘制时测试极限姿势</p>
+</li>
+<li>
+<p><strong>权重断层导致的硬边</strong>
+   - 原因：相邻顶点权重差异过大
+   - 解决：使用模糊工具平滑过渡
+   - 预防：保持权重梯度均匀</p>
+</li>
+<li>
+<p><strong>对称部位权重不一致</strong>
+   - 原因：手动绘制精度不足
+   - 解决：使用镜像权重工具
+   - 预防：先完成一侧，再镜像复制</p>
+</li>
+</ol>
+<h2 id="3">3. 武器与道具制作标准</h2>
+<h3 id="31">3.1 武器建模规范</h3>
+<p>武器是战斗动画的灵魂之一。原神的武器设计融合了东西方元素，既有中国传统兵器的神韵，也有西方奇幻风格的华丽。武器模型需要在视觉细节和游戏性能间找到完美平衡。</p>
+<p><strong>武器分级与多边形预算：</strong></p>
+<p>原神武器按稀有度分级，不同级别对应不同的多边形预算：</p>
+<p><strong>5星武器（传说级）：</strong></p>
+<ul>
+<li>单手剑：5000-7000面</li>
+<li>双手剑：6000-8000面</li>
+<li>长柄武器：5500-7500面</li>
+<li>法器：4000-6000面</li>
+<li>弓：4500-6500面</li>
+<li>特效附加：+2000-3000面（光效、粒子等）</li>
+</ul>
+<p><strong>4星武器（精品级）：</strong></p>
+<ul>
+<li>单手剑：3000-5000面</li>
+<li>双手剑：4000-6000面</li>
+<li>长柄武器：3500-5500面</li>
+<li>法器：2000-4000面</li>
+<li>弓：3000-4500面</li>
+</ul>
+<p><strong>3星及以下（普通级）：</strong></p>
+<ul>
+<li>所有类型：2000-3000面</li>
+<li>重点在基本形状，减少装饰细节</li>
+</ul>
+<p><strong>武器建模的关键要素：</strong></p>
+<ol>
+<li>
+<p><strong>刃部设计</strong>
+   - 刃口厚度：保持一定厚度避免闪烁
+   - 刃纹细节：使用法线贴图而非几何体
+   - 血槽设计：适当凹陷增加立体感</p>
+</li>
+<li>
+<p><strong>护手与装饰</strong>
+   - 装饰元素：控制在总面数30%以内
+   - 对称设计：利用对称减少实际建模量
+   - 细节LOD：为远景准备简化版本</p>
+</li>
+<li>
+<p><strong>握把设计</strong>
+   - 人体工学：确保握持舒适
+   - 缠绕细节：用贴图表现而非模型
+   - 防滑纹理：增加视觉真实感</p>
+</li>
+</ol>
+<h3 id="32">3.2 枢轴点设置</h3>
+<p>枢轴点（Pivot Point）是物体旋转和缩放的中心，对于武器动画来说，枢轴点的位置直接决定了挥舞的自然度和真实感。错误的枢轴点会让武器看起来像在空中飘浮，而非被角色握持。</p>
+<p><strong>不同武器类型的枢轴点策略：</strong></p>
+<div class="codehilite"><pre><span></span><code>剑的枢轴点位置：
+     刀刃
+       │
+    ───┼───
+       │
+     护手
+       │
+    ▼ 枢轴点（握把底部）
+</code></pre></div>
+
+<h3 id="33">3.3 碰撞体设置</h3>
+<p>碰撞体是实现武器与环境、敌人交互的基础。在原神的战斗系统中，精确的碰撞检测是打击感的重要保证。然而，过于复杂的碰撞体会严重影响性能，特别是在多人战斗场景中。</p>
+<p><strong>碰撞体设计原则：</strong></p>
+<ol>
+<li>
+<p><strong>简化但准确</strong>
+   - 使用基础几何体：盒子、胶囊、球体
+   - 复合碰撞体：组合多个简单形状
+   - 避免凹多边形：计算成本高</p>
+</li>
+<li>
+<p><strong>分层碰撞系统</strong>
+   - 粗略碰撞：用于远距离判定
+   - 精确碰撞：用于近距离伤害计算
+   - 特效碰撞：用于粒子和特效触发</p>
+</li>
+</ol>
+<p><strong>各类武器的碰撞体配置：</strong></p>
+<p><strong>单手剑：</strong></p>
+<div class="codehilite"><pre><span></span><code>刃部：盒体（主碰撞区）
+     长度 = 刃长 <span class="gs">* 0.95</span>
+<span class="gs">     宽度 = 刃宽 *</span> 0.9
+     厚度 = 0.05m
+护手：球体（格挡判定）
+     半径 = 0.15m
+柄部：胶囊（握持检测）
+     长度 = 0.2m
+     半径 = 0.03m
+</code></pre></div>
+
+<p><strong>双手剑：</strong></p>
+<div class="codehilite"><pre><span></span><code>刃部：2-3个盒体串联
+     上段：攻击主区域
+     中段：过渡区域  
+     下段：靠近护手
+横档：盒体（格挡区域）
+柄部：胶囊（双手握持）
+</code></pre></div>
+
+<p><strong>长柄武器：</strong></p>
+<div class="codehilite"><pre><span></span><code>枪尖：键形碰撞体
+     刺击点：球体
+     刃部：盒体
+柄身：胶囊链
+     分段3-4节
+     支持横扫判定
+尾部：球体（反击区域）
+</code></pre></div>
+
+<p><strong>法器：</strong></p>
+<div class="codehilite"><pre><span></span><code>主体：球体或盒体
+法术发射点：Empty对象
+光环特效：无碰撞，纯视觉
+</code></pre></div>
+
+<p><strong>弓箭：</strong></p>
+<div class="codehilite"><pre><span></span><code>弓身：弧形碰撞体
+弓弦：线段碰撞
+箭矢：独立的胶囊体
+     箭头：点碰撞
+     箭身：线碰撞
+</code></pre></div>
+
+<p><strong>碰撞体优化技巧：</strong></p>
+<ol>
+<li>
+<p><strong>LOD碰撞体</strong>
+   - 近距离：完整碰撞体
+   - 中距离：简化碰撞体
+   - 远距离：单一包围盒</p>
+</li>
+<li>
+<p><strong>动态碰撞体</strong>
+   - 普通攻击：基础碰撞体
+   - 技能攻击：扩大碰撞范围
+   - 元素爆发：特殊碰撞形状</p>
+</li>
+<li>
+<p><strong>碰撞层级</strong>
+   - Layer 0：环境碰撞
+   - Layer 1：角色碰撞
+   - Layer 2：武器碰撞
+   - Layer 3：特效碰撞</p>
+</li>
+</ol>
+<h2 id="4">4. 材质与贴图工作流</h2>
+<h3 id="41-pbr">4.1 PBR材质规范</h3>
+<p>原神采用风格化的PBR渲染，融合了日式卡通渲染和物理正确渲染的优点。这种渲染方式既保留了二次元的艺术风格，又具有现代渲染技术的细节表现力。</p>
+<p><strong>原神风格化PBR的特点：</strong></p>
+<ol>
+<li>
+<p><strong>色彩风格化</strong>
+   - 高饱和度色彩
+   - 减少现境光的影响
+   - 强调固有色
+   - 阴影偏色处理</p>
+</li>
+<li>
+<p><strong>光照简化</strong>
+   - 主光源明确
+   - 阴影边缘锐利
+   - 半影区域平滑过渡
+   - Rim Light强调轮廓</p>
+</li>
+</ol>
+<p><strong>标准贴图通道配置：</strong></p>
+<ul>
+<li><strong>Base Color（基础色）</strong></li>
+<li>格式：sRGB，8位/通道</li>
+<li>特点：高对比度，纯净色彩</li>
+<li>避免：过度的灰色和脏迹</li>
+<li>
+<p>建议：使用色卡限制色彩数量</p>
+</li>
+<li>
+<p><strong>Metallic（金属度）</strong></p>
+</li>
+<li>格式：灰度图，8位</li>
+<li>数值：0（非金属）或1（纯金属）</li>
+<li>原神特色：大多为极端值，很少使用中间值</li>
+<li>
+<p>常用配置：</p>
+<ul>
+<li>皮肤/布料：0</li>
+<li>金属装饰：1</li>
+<li>半金属：0.7-0.9</li>
+</ul>
+</li>
+<li>
+<p><strong>Roughness（粗糙度）</strong></p>
+</li>
+<li>格式：灰度图，8位</li>
+<li>数值：0（光滑）或1（粗糙）</li>
+<li>
+<p>风格化处理：</p>
+<ul>
+<li>皮肤：0.4-0.6</li>
+<li>丝绸：0.2-0.3</li>
+<li>棉布：0.6-0.8</li>
+<li>金属：0.1-0.3</li>
+<li>皮革：0.3-0.5</li>
+</ul>
+</li>
+<li>
+<p><strong>Normal（法线）</strong></p>
+</li>
+<li>格式：Tangent Space，16位/通道</li>
+<li>强度：适度使用，避免过强</li>
+<li>
+<p>应用：</p>
+<ul>
+<li>细节纹理（布料编织）</li>
+<li>装饰花纹</li>
+<li>肌肉细节</li>
+<li>武器刻痕</li>
+</ul>
+</li>
+<li>
+<p><strong>Emission（自发光）</strong></p>
+</li>
+<li>格式：HDR，16位/通道</li>
+<li>用途：<ul>
+<li>元素效果发光</li>
+<li>神之眼效果</li>
+<li>武器附魔</li>
+<li>技能特效</li>
+</ul>
+</li>
+<li>颜色对应：<ul>
+<li>火元素：橙红色</li>
+<li>水元素：蓝色</li>
+<li>雷元素：紫色</li>
+<li>风元素：青绿色</li>
+<li>岩元素：金黄色</li>
+<li>冰元素：淡蓝色</li>
+<li>草元素：绿色</li>
+</ul>
+</li>
+</ul>
+<p><strong>特殊材质处理：</strong></p>
+<p><strong>半透明材质（丝袜、薄纱）：</strong></p>
+<ul>
+<li>Alpha通道：控制透明度</li>
+<li>背面剔除：关闭</li>
+<li>深度写入：特殊处理</li>
+<li>渲染顺序：从后向前</li>
+</ul>
+<p><strong>各向异性材质（头发、丝绸）：</strong></p>
+<ul>
+<li>Anisotropic参数</li>
+<li>Tangent方向控制</li>
+<li>特殊高光计算</li>
+</ul>
+<h3 id="42">4.2 贴图分辨率标准</h3>
+<p>贴图分辨率直接影响游戏的视觉质量和性能表现。原神作为一款跨平台游戏，需要在PC、主机和移动设备上都能流畅运行，因此贴图分辨率的管理尤为重要。</p>
+<p><strong>分层分辨率系统：</strong></p>
+<p><strong>PC/主机版本（最高画质）：</strong></p>
+<ul>
+<li><strong>5星主角</strong>：</li>
+<li>身体：4K (4096×4096)</li>
+<li>脸部：2K 独立贴图</li>
+<li>头发：2K 独立贴图</li>
+<li>衣物：4K (4096×4096)</li>
+<li>
+<p>武器：2K (2048×2048)</p>
+</li>
+<li>
+<p><strong>4星角色</strong>：</p>
+</li>
+<li>身体+衣物：2K (2048×2048)</li>
+<li>脸部：共享在主贴图中</li>
+<li>
+<p>武器：1K-2K</p>
+</li>
+<li>
+<p><strong>普通敌人</strong>：</p>
+</li>
+<li>小怪：1K (1024×1024)</li>
+<li>精英怪：2K (2048×2048)</li>
+<li>
+<p>Boss：2K-4K</p>
+</li>
+<li>
+<p><strong>环境资产</strong>：</p>
+</li>
+<li>地形：2K 平铺贴图</li>
+<li>建筑：2K-4K</li>
+<li>植物：512-1K</li>
+<li>小道具：512-1K</li>
+</ul>
+<p><strong>移动版本（优化画质）：</strong></p>
+<ul>
+<li>所有贴图降低一级</li>
+<li>4K → 2K</li>
+<li>2K → 1K</li>
+<li>1K → 512</li>
+<li>合并部分贴图通道</li>
+</ul>
+<p><strong>贴图密度统一标准：</strong></p>
+<p>Texel Density（纹素密度）是保证视觉一致性的关键：</p>
+<div class="codehilite"><pre><span></span><code>推荐密度值（像素/米）：
+主角：      1024-2048
+重要NPC：   512-1024
+普通敌人：   256-512
+大型建筑：   128-256
+地形：       64-128
+远景：       32-64
+</code></pre></div>
+
+<p><strong>贴图合并策略：</strong></p>
+<ol>
+<li>
+<p><strong>通道合并</strong>
+   - Metallic + Roughness + AO → 一张RGB贴图
+   - R通道：Metallic
+   - G通道：Roughness
+   - B通道：Ambient Occlusion</p>
+</li>
+<li>
+<p><strong>图集合并</strong>
+   - 小道具共享贴图
+   - 同类武器共享材质
+   - 通用装饰元素合并</p>
+</li>
+<li>
+<p><strong>LOD贴图策略</strong>
+   - LOD0：全分辨率
+   - LOD1：50%分辨率
+   - LOD2：25%分辨率
+   - LOD3：纯色或极简贴图</p>
+</li>
+</ol>
+<h3 id="43-uv">4.3 UV展开原则</h3>
+<p>高效的UV布局是优化贴图利用率的关键。在原神项目中，一个角色可能有数十套服装，如果每套服装的UV布局都不同，将极大增加贴图制作的工作量。因此，建立统一的UV展开规范至关重要。</p>
+<p><strong>UV展开的核心原则：</strong></p>
+<ol>
+<li>
+<p><strong>最大化利用率</strong>
+   - UV占用率应达到70-85%
+   - 避免大面积空白
+   - 合理安排岛屿间距</p>
+</li>
+<li>
+<p><strong>保持比例一致</strong>
+   - 使用Texel Density检查
+   - 重要区域保持更高密度
+   - 隐藏区域可适当缩小</p>
+</li>
+<li>
+<p><strong>减少拉伸变形</strong>
+   - 使用Angle Based展开
+   - 手动调整问题区域
+   - 保持UV边缘平滑</p>
+</li>
+</ol>
+<p><strong>标准化UV布局方案：</strong></p>
+<p><strong>角色UV布局（单张贴图）：</strong></p>
+<div class="codehilite"><pre><span></span><code>┌────────────────────────┐
+│    头部(前)    │头(后)│
+│                │     │
+├────────┬───────┼─────┤
+│  躯干  │  腰部  │手指│
+│ (前面) │       │细节│
+├────────┼───────┼─────┤
+│手臂(左)│手臂(右)│背部│
+├────────┼───────┼─────┤
+│ 腿(左) │ 腿(右) │脚掌│
+└────────┴───────┴─────┘
+
+占用率：75-80%
+边缘间距：8-16像素
+</code></pre></div>
+
+<p><strong>角色UV布局（多张贴图）：</strong></p>
+<p>贴图1 - 身体：</p>
+<div class="codehilite"><pre><span></span><code>┌────────────────────┐
+│    躯干(前面)    │
+│                  │
+├────────┬────────┤
+│手臂(左)│手臂(右)│
+├────────┼────────┤
+│ 腿(左) │ 腿(右) │
+│        │        │
+└────────┴────────┘
+</code></pre></div>
+
+<p>贴图2 - 头部与面部：</p>
+<div class="codehilite"><pre><span></span><code>┌────────────────────┐
+│    脸部(正面)    │
+│                  │
+│                  │
+├────────┬────────┤
+│侧脸(左)│侧脸(右)│
+├────────┼────────┤
+│眼睛细节│嘴巴内部│
+└────────┴────────┘
+</code></pre></div>
+
+<p><strong>武器UV布局：</strong></p>
+<div class="codehilite"><pre><span></span><code>┌────────────────────┐
+│    刃部(主体)    │
+│                  │
+├──────────────────┤
+│   护手与装饰   │
+├────────┬────────┤
+│  柄部  │细节部件│
+└────────┴────────┘
+</code></pre></div>
+
+<p><strong>UV优化技巧：</strong></p>
+<ol>
+<li>
+<p><strong>对称复用</strong>
+   - 左右对称部位共用UV
+   - 节省50%的UV空间
+   - 注意法线方向翻转</p>
+</li>
+<li>
+<p><strong>重叠技巧</strong>
+   - 相同材质的小部件重叠
+   - 重复图案使用平铺
+   - 隐藏面共享小UV区域</p>
+</li>
+<li>
+<p><strong>优先级分配</strong>
+   - 脸部：最高优先级（150%密度）
+   - 手部：高优先级（120%密度）
+   - 躯干：标准密度（100%）
+   - 腿部：标准密度（100%）
+   - 脚部：较低密度（80%）
+   - 隐藏部位：最低密度（50%）</p>
+</li>
+<li>
+<p><strong>边缘处理</strong>
+   - 保持UV岛屿间8-16像素间距
+   - 避免Mipmap时的颜色渗透
+   - 使用Padding填充边缘</p>
+</li>
+</ol>
+<h2 id="5">5. 资产库的建立与管理</h2>
+<h3 id="51">5.1 资产分类系统</h3>
+<p>建立清晰的分类体系是管理大量资产的基础。原神拥有数百个角色、上千种武器和道具，没有系统化的分类，找一个特定资产就像大海捞针。一个好的分类系统不仅方便查找，更能提高资产复用率。</p>
+<p><strong>多维度分类体系：</strong></p>
+<p><strong>角色分类维度：</strong></p>
+<ol>
+<li>
+<p><strong>按元素属性</strong>
+   - 火元素（Pyro）：迪卢克、可莉、胡桃等
+   - 水元素（Hydro）：芭芭拉、莫娜、行秋等
+   - 冰元素（Cryo）：凯亚、甘雨、七七等
+   - 雷元素（Electro）：刻晴、雷电将军、菲谢尔等
+   - 风元素（Anemo）：温迪、琴、枫原万叶等
+   - 岩元素（Geo）：钟离、阿贝多、诺艾尔等
+   - 草元素（Dendro）：纳西妲、提纳里、柯莱等</p>
+</li>
+<li>
+<p><strong>按武器类型</strong>
+   - 单手剑：快速连击，灵活机动
+   - 双手剑：重击破防，大开大合
+   - 长柄武器：范围攻击，中距离优势
+   - 法器：远程输出，元素伤害
+   - 弓箭：远程物理，精准打击</p>
+</li>
+<li>
+<p><strong>按稀有度</strong>
+   - 5星（SSR）：限定角色，最高品质
+   - 4星（SR）：优秀角色，主力配置
+   - 3星及以下：NPC或怪物</p>
+</li>
+<li>
+<p><strong>按地区来源</strong>
+   - 蒙德：中世纪风格
+   - 璃月：中国风格
+   - 稻妻：日本风格
+   - 须弥：南亚风格
+   - 枫丹：法国风格
+   - 纳塔：拉丁美洲风格
+   - 至冬：俄罗斯风格</p>
+</li>
+</ol>
+<p><strong>武器分类系统：</strong></p>
+<div class="codehilite"><pre><span></span><code>武器库/
+├── 按类型/
+│   ├── 单手剑/
+│   │   ├── 5星/
+│   │   ├── 4星/
+│   │   └── 3星/
+│   ├── 双手剑/
+│   ├── 长柄/
+│   ├── 法器/
+│   └── 弓/
+├── 按系列/
+│   ├── 限定系列/
+│   ├── 龙脊系列/
+│   ├── 西风系列/
+│   └── 锁传系列/
+└── 按材质/
+    ├── 金属质感/
+    ├── 木质/
+    └── 魔法水晶/
+</code></pre></div>
+
+<h3 id="52">5.2 预设库建设</h3>
+<p>预设库是提高制作效率的秘密武器。想象一下，每次制作新角色时都要从零开始调整姿势、材质、表情，这将消耗大量时间。一个完善的预设库可以让你在几分钟内完成原本需要几小时的工作。</p>
+<p><strong>动作预设库：</strong></p>
+<p><strong>基础姿态库：</strong></p>
+<ol>
+<li>
+<p><strong>站立姿势组</strong>
+   - 中立站立：标准T-Pose或A-Pose
+   - 战斗站立：各武器类型的持武姿势
+   - 休闲站立：放松的日常姿态
+   - 角色特色：每个角色的标志性站姿</p>
+</li>
+<li>
+<p><strong>移动循环库</strong>
+   - 慢走：8帧、1帧、2帧循环
+   - 正常走：12帧、6帧、8帧循环
+   - 跑步：8帧、6帧、4帧循环
+   - 冲刺：6帧、4帧循环
+   - 闪避：左、右、后的快速闪避</p>
+</li>
+<li>
+<p><strong>战斗基础库</strong>
+   - 普通攻击：1-5连击组合
+   - 重击：蓄力和释放
+   - 格挡：成功和失败
+   - 受击：轻、中、重及击飞
+   - 倒地：倒下和起身</p>
+</li>
+</ol>
+<p><strong>手势预设库：</strong></p>
+<div class="codehilite"><pre><span></span><code>基础手势：
+
+- 张开手掌
+- 握拳
+- 指向
+- OK手势
+- 剪刀手
+- 拇指向上
+
+持物手势：
+
+- 单手持剑
+- 双手持剑
+- 持弓
+- 持法器
+- 持枚
+- 拿物品
+
+施法手势：
+
+- 元素凝聚
+- 法术释放
+- 结印手势
+- 召唤手势
+</code></pre></div>
+
+<p><strong>材质预设库：</strong></p>
+<p><strong>金属材质组：</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">Metallic_Gold</span><span class="o">:</span>
+<span class="w">  </span><span class="n">Base</span><span class="w"> </span><span class="n">Color</span><span class="o">:</span><span class="w"> </span><span class="err">#</span><span class="n">FFD700</span>
+<span class="w">  </span><span class="n">Metallic</span><span class="o">:</span><span class="w"> </span><span class="mf">1.0</span>
+<span class="w">  </span><span class="n">Roughness</span><span class="o">:</span><span class="w"> </span><span class="mf">0.2</span>
+
+
+<span class="n">Metallic_Silver</span><span class="o">:</span>
+<span class="w">  </span><span class="n">Base</span><span class="w"> </span><span class="n">Color</span><span class="o">:</span><span class="w"> </span><span class="err">#</span><span class="n">C0C0C0</span>
+<span class="w">  </span><span class="n">Metallic</span><span class="o">:</span><span class="w"> </span><span class="mf">1.0</span>
+<span class="w">  </span><span class="n">Roughness</span><span class="o">:</span><span class="w"> </span><span class="mf">0.15</span>
+
+<span class="n">Metallic_Bronze</span><span class="o">:</span>
+<span class="w">  </span><span class="n">Base</span><span class="w"> </span><span class="n">Color</span><span class="o">:</span><span class="w"> </span><span class="err">#</span><span class="n">CD7F32</span>
+<span class="w">  </span><span class="n">Metallic</span><span class="o">:</span><span class="w"> </span><span class="mf">1.0</span>
+<span class="w">  </span><span class="n">Roughness</span><span class="o">:</span><span class="w"> </span><span class="mf">0.3</span>
+
+<span class="n">Metallic_Iron</span><span class="o">:</span>
+<span class="w">  </span><span class="n">Base</span><span class="w"> </span><span class="n">Color</span><span class="o">:</span><span class="w"> </span><span class="err">#</span><span class="mi">434</span><span class="n">B4D</span>
+<span class="w">  </span><span class="n">Metallic</span><span class="o">:</span><span class="w"> </span><span class="mf">1.0</span>
+<span class="w">  </span><span class="n">Roughness</span><span class="o">:</span><span class="w"> </span><span class="mf">0.4</span>
+</code></pre></div>
+
+<p><strong>布料材质组：</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">Fabric_Silk</span><span class="o">:</span>
+<span class="w">  </span><span class="n">Base</span><span class="w"> </span><span class="n">Color</span><span class="o">:</span><span class="w"> </span><span class="n">Variable</span>
+<span class="w">  </span><span class="n">Metallic</span><span class="o">:</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="w">  </span><span class="n">Roughness</span><span class="o">:</span><span class="w"> </span><span class="mf">0.3</span>
+<span class="w">  </span><span class="n">Sheen</span><span class="o">:</span><span class="w"> </span><span class="mf">0.5</span>
+
+<span class="n">Fabric_Cotton</span><span class="o">:</span>
+<span class="w">  </span><span class="n">Base</span><span class="w"> </span><span class="n">Color</span><span class="o">:</span><span class="w"> </span><span class="n">Variable</span>
+<span class="w">  </span><span class="n">Metallic</span><span class="o">:</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="w">  </span><span class="n">Roughness</span><span class="o">:</span><span class="w"> </span><span class="mf">0.7</span>
+
+<span class="n">Fabric_Leather</span><span class="o">:</span>
+<span class="w">  </span><span class="n">Base</span><span class="w"> </span><span class="n">Color</span><span class="o">:</span><span class="w"> </span><span class="n">Variable</span>
+<span class="w">  </span><span class="n">Metallic</span><span class="o">:</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="w">  </span><span class="n">Roughness</span><span class="o">:</span><span class="w"> </span><span class="mf">0.4</span>
+
+<span class="n">Fabric_Denim</span><span class="o">:</span>
+<span class="w">  </span><span class="n">Base</span><span class="w"> </span><span class="n">Color</span><span class="o">:</span><span class="w"> </span><span class="err">#</span><span class="mi">1560</span><span class="n">BD</span>
+<span class="w">  </span><span class="n">Metallic</span><span class="o">:</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="w">  </span><span class="n">Roughness</span><span class="o">:</span><span class="w"> </span><span class="mf">0.8</span>
+</code></pre></div>
+
+<p><strong>皮肤材质组：</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">Skin_Fair</span><span class="o">:</span>
+<span class="w">  </span><span class="n">Base</span><span class="w"> </span><span class="n">Color</span><span class="o">:</span><span class="w"> </span><span class="err">#</span><span class="n">FDBCB4</span>
+<span class="w">  </span><span class="n">Subsurface</span><span class="o">:</span><span class="w"> </span><span class="mf">0.5</span>
+<span class="w">  </span><span class="n">Roughness</span><span class="o">:</span><span class="w"> </span><span class="mf">0.5</span>
+
+<span class="n">Skin_Medium</span><span class="o">:</span>
+<span class="w">  </span><span class="n">Base</span><span class="w"> </span><span class="n">Color</span><span class="o">:</span><span class="w"> </span><span class="err">#</span><span class="n">F1C27D</span>
+<span class="w">  </span><span class="n">Subsurface</span><span class="o">:</span><span class="w"> </span><span class="mf">0.5</span>
+<span class="w">  </span><span class="n">Roughness</span><span class="o">:</span><span class="w"> </span><span class="mf">0.5</span>
+
+<span class="n">Skin_Dark</span><span class="o">:</span>
+<span class="w">  </span><span class="n">Base</span><span class="w"> </span><span class="n">Color</span><span class="o">:</span><span class="w"> </span><span class="err">#</span><span class="mi">8</span><span class="n">D5524</span>
+<span class="w">  </span><span class="n">Subsurface</span><span class="o">:</span><span class="w"> </span><span class="mf">0.4</span>
+<span class="w">  </span><span class="n">Roughness</span><span class="o">:</span><span class="w"> </span><span class="mf">0.5</span>
+</code></pre></div>
+
+<p><strong>表情预设库：</strong></p>
+<ol>
+<li>
+<p><strong>基础表情</strong>
+   - 微笑：10%、25%、50%、100%
+   - 惊讶：睹大眼睛+张嘴
+   - 生气：皱眉+歪嘴
+   - 悲伤：下垂眉毛+嘴角下弯
+   - 害羞：红晕+眶眼</p>
+</li>
+<li>
+<p><strong>战斗表情</strong>
+   - 专注：紧锁眉头
+   - 奋战：张嘴呐喊
+   - 痛苦：紧闭双眼
+   - 坚毅：咬牙切齿
+   - 得意：嘴角上扬</p>
+</li>
+</ol>
+<p><strong>特效预设库：</strong></p>
+<ol>
+<li>
+<p><strong>元素特效基础</strong>
+   - 火焰：粒子+热扰动
+   - 水波：波纹+折射
+   - 闪电：线条+发光
+   - 冰霜：Subsurface+反射
+   - 岩石：几何体+碎片
+   - 风卷：螺旋+流动
+   - 草叶：叶片+生长</p>
+</li>
+<li>
+<p><strong>打击特效</strong>
+   - 火花：碰撞点爆发
+   - 冲击波：环形扩散
+   - 尘土：粒子飞散
+   - 光晕：瞬间闪光</p>
+</li>
+</ol>
+<h3 id="53">5.3 资产链接与管理</h3>
+<p>在大型项目中，资产的链接和管理直接决定了工作效率和协作质量。Blender提供了强大的资产管理系统，但很多人没有充分利用这些功能，导致文件臃肿、更新困难、版本混乱。</p>
+<p><strong>Blender资产管理的三种模式：</strong></p>
+<ol>
+<li><strong>Link（链接）模式：</strong></li>
+</ol>
+<p>特点：</p>
+<ul>
+<li>链接外部文件，保持实时同步</li>
+<li>文件体积小，只保存引用</li>
+<li>源文件更新后自动同步</li>
+<li>无法直接编辑链接的资产</li>
+</ul>
+<p>适用场景：</p>
+<ul>
+<li>角色模型在多个场景中使用</li>
+<li>环境资产在不同关卡中复用</li>
+<li>通用动画在多个角色间共享</li>
+</ul>
+<p>使用示例：</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Blender Python API</span>
+<span class="kn">import</span> <span class="nn">bpy</span>
+
+<span class="c1"># 链接角色模型</span>
+<span class="k">with</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">libraries</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;//assets/characters/hero.blend&quot;</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="p">(</span><span class="n">data_from</span><span class="p">,</span> <span class="n">data_to</span><span class="p">):</span>
+    <span class="n">data_to</span><span class="o">.</span><span class="n">objects</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Character_Mesh&quot;</span><span class="p">,</span> <span class="s2">&quot;Character_Armature&quot;</span><span class="p">]</span>
+
+<span class="c1"># 将链接的对象添加到场景</span>
+<span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">data_to</span><span class="o">.</span><span class="n">objects</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">collection</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+</code></pre></div>
+
+<ol start="2">
+<li><strong>Append（附加）模式：</strong></li>
+</ol>
+<p>特点：</p>
+<ul>
+<li>完全复制资产到当前文件</li>
+<li>可以自由编辑</li>
+<li>与源文件断开联系</li>
+<li>文件体积增大</li>
+</ul>
+<p>适用场景：</p>
+<ul>
+<li>需要对资产进行特殊修改</li>
+<li>制作变体或衍生版本</li>
+<li>最终合并文件</li>
+</ul>
+<p>使用示例：</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 附加武器模型</span>
+<span class="k">with</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">libraries</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;//assets/weapons/sword.blend&quot;</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">as</span> <span class="p">(</span><span class="n">data_from</span><span class="p">,</span> <span class="n">data_to</span><span class="p">):</span>
+    <span class="n">data_to</span><span class="o">.</span><span class="n">objects</span> <span class="o">=</span> <span class="n">data_from</span><span class="o">.</span><span class="n">objects</span>
+    <span class="n">data_to</span><span class="o">.</span><span class="n">materials</span> <span class="o">=</span> <span class="n">data_from</span><span class="o">.</span><span class="n">materials</span>
+</code></pre></div>
+
+<ol start="3">
+<li><strong>Library Override（库覆盖）模式：</strong></li>
+</ol>
+<p>特点：</p>
+<ul>
+<li>保持链接关系</li>
+<li>允许局部修改</li>
+<li>源文件更新后保留自定义修改</li>
+<li>Blender 2.93+的新特性</li>
+</ul>
+<p>适用场景：</p>
+<ul>
+<li>角色换装系统</li>
+<li>动画微调</li>
+<li>材质变体</li>
+</ul>
+<p>使用示例：</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 创建库覆盖</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">selected_objects</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">override_create</span><span class="p">()</span>
+<span class="c1"># 现在可以修改特定属性</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">2.0</span>
+</code></pre></div>
+
+<p><strong>资产管理最佳实践：</strong></p>
+<ol>
+<li><strong>目录结构规范：</strong></li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="nx">project</span><span class="o">/</span>
+<span class="err">├──</span><span class="w"> </span><span class="nx">master_files</span><span class="o">/</span><span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="nx">主文件</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="nx">characters</span><span class="o">/</span><span class="w">      </span><span class="err">#</span><span class="w"> </span><span class="nx">角色源文件</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="nx">props</span><span class="o">/</span><span class="w">          </span><span class="err">#</span><span class="w"> </span><span class="nx">道具源文件</span>
+<span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="nx">environments</span><span class="o">/</span><span class="w">   </span><span class="err">#</span><span class="w"> </span><span class="nx">环境源文件</span>
+<span class="err">├──</span><span class="w"> </span><span class="nx">shot_files</span><span class="o">/</span><span class="w">         </span><span class="err">#</span><span class="w"> </span><span class="nx">场景文件</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="nx">shot_010</span><span class="o">/</span><span class="w">      </span><span class="err">#</span><span class="w"> </span><span class="nx">使用Link链接资产</span>
+<span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="nx">shot_020</span><span class="o">/</span>
+<span class="err">└──</span><span class="w"> </span><span class="kn">library</span><span class="o">/</span><span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="nx">共享库</span>
+<span class="w">    </span><span class="err">├──</span><span class="w"> </span><span class="nx">materials</span><span class="o">/</span><span class="w">      </span><span class="err">#</span><span class="w"> </span><span class="nx">材质库</span>
+<span class="w">    </span><span class="err">├──</span><span class="w"> </span><span class="nx">hdri</span><span class="o">/</span><span class="w">          </span><span class="err">#</span><span class="w"> </span><span class="nx">环境贴图</span>
+<span class="w">    </span><span class="err">└──</span><span class="w"> </span><span class="nx">scripts</span><span class="o">/</span><span class="w">       </span><span class="err">#</span><span class="w"> </span><span class="nx">工具脚本</span>
+</code></pre></div>
+
+<ol start="2">
+<li><strong>命名规则：</strong></li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">资产文件</span>
+<span class="n">char_</span><span class="o">[</span><span class="n">name</span><span class="o">]</span><span class="n">_</span><span class="o">[</span><span class="n">version</span><span class="o">]</span><span class="p">.</span><span class="n">blend</span>
+<span class="n">prop_</span><span class="o">[</span><span class="n">name</span><span class="o">]</span><span class="n">_</span><span class="o">[</span><span class="n">version</span><span class="o">]</span><span class="p">.</span><span class="n">blend</span>
+<span class="n">env_</span><span class="o">[</span><span class="n">location</span><span class="o">]</span><span class="n">_</span><span class="o">[</span><span class="n">version</span><span class="o">]</span><span class="p">.</span><span class="n">blend</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">集合命名</span>
+<span class="n">COL_character_main</span>
+<span class="n">COL_character_extras</span>
+<span class="n">COL_props_weapons</span>
+<span class="n">COL_props_items</span>
+</code></pre></div>
+
+<ol start="3">
+<li>
+<p><strong>更新策略：</strong>
+- 主资产修改后自动通知相关人员
+- 使用版本号管理重大更新
+- 建立资产依赖关系表
+- 定期检查断链和缺失</p>
+</li>
+<li>
+<p><strong>性能优化：</strong>
+- 使用代理对象（Proxy）减少显示负担
+- 创建LOD版本用于预览
+- 缓存动画和模拟数据
+- 使用Collection Instance减少内存占用</p>
+</li>
+<li>
+<p><strong>协作流程：</strong>
+- 模型师维护master文件
+- 动画师使用Link链接模型
+- 特效师使用Override添加特效
+- 合成师最后Append合并所有资产</p>
+</li>
+</ol>
+<h2 id="_3">本章小结</h2>
+<p>本章我们建立了战斗动画项目的基础框架：</p>
+<ul>
+<li><strong>项目管理</strong>：规范的文件结构和命名规则是高效工作的前提</li>
+<li><strong>模型规范</strong>：良好的拓扑和骨骼系统是动画质量的保证</li>
+<li><strong>资产标准</strong>：统一的制作标准确保资产的一致性和可复用性</li>
+<li><strong>工作流程</strong>：建立标准化流程提高制作效率</li>
+</ul>
+<p>记住，这些看似繁琐的准备工作会在后续制作中节省大量时间。一个混乱的项目会让简单的修改变得困难重重，而良好的组织则让复杂的制作变得有条不紊。</p>
+<h2 id="_4">练习题</h2>
+<h3 id="_5">基础题</h3>
+<p><strong>练习1.1：项目结构创建</strong>
+创建一个新的战斗动画项目，按照本章介绍的标准目录结构组织文件。包含至少一个角色、两种武器和一个测试场景。</p>
+<details>
+<summary>💡 提示</summary>
+<p>使用脚本批量创建文件夹结构，确保每个文件夹都有清晰的用途说明文档。</p>
+</details>
+<details>
+<summary>📝 参考答案</summary>
+<ol>
+<li>创建主目录和所有子目录</li>
+<li>在每个目录下创建README.md说明文件用途</li>
+<li>设置.gitignore忽略缓存和临时文件</li>
+<li>创建项目配置文件记录贴图分辨率、多边形数量等标准</li>
+</ol>
+</details>
+<p><strong>练习1.2：角色拓扑检查</strong>
+下载一个免费的角色模型，检查其拓扑是否适合战斗动画。列出至少5个需要改进的地方。</p>
+<details>
+<summary>💡 提示</summary>
+<p>重点检查肩部、肘部、膝盖等关节区域的边流。使用Blender的线框显示模式观察。</p>
+</details>
+<details>
+<summary>📝 参考答案</summary>
+<p>常见问题：</p>
+<ol>
+<li>肩部缺少环形边流</li>
+<li>肘部三角面过多</li>
+<li>膝盖弯曲处边线密度不足</li>
+<li>手腕没有足够的循环边</li>
+<li>脊椎区域拓扑不均匀</li>
+</ol>
+</details>
+<p><strong>练习1.3：骨骼创建与命名</strong>
+为一个简单的人形模型创建基础骨骼系统，严格遵循命名规范。</p>
+<details>
+<summary>💡 提示</summary>
+<p>使用Blender的Armature工具，从骨盆开始构建。记得使用X-Axis Mirror保证对称。</p>
+</details>
+<details>
+<summary>📝 参考答案</summary>
+<p>骨骼层级：</p>
+<ul>
+<li>root</li>
+<li>pelvis<ul>
+<li>spine_01 → spine_02 → spine_03 → neck → head</li>
+<li>thigh.L → shin.L → foot.L → toe.L</li>
+<li>thigh.R → shin.R → foot.R → toe.R</li>
+</ul>
+</li>
+<li>clavicle.L → upper_arm.L → forearm.L → hand.L</li>
+<li>clavicle.R → upper_arm.R → forearm.R → hand.R</li>
+</ul>
+</details>
+<p><strong>练习1.4：UV展开优化</strong>
+将一个1024×1024的武器模型贴图优化到512×512，同时保持视觉质量。</p>
+<details>
+<summary>💡 提示</summary>
+<p>识别哪些部分最重要（刃部、装饰），给予更多UV空间。隐藏部分可以缩小。</p>
+</details>
+<details>
+<summary>📝 参考答案</summary>
+<p>优化策略：</p>
+<ol>
+<li>合并相似/对称的部分共用UV</li>
+<li>隐藏面删除或极度缩小</li>
+<li>重要细节（刃部、纹饰）保持较大UV空间</li>
+<li>使用Texel Density检查工具确保密度均匀</li>
+<li>考虑使用平铺贴图处理重复图案</li>
+</ol>
+</details>
+<h3 id="_6">挑战题</h3>
+<p><strong>练习1.5：批量资产处理脚本</strong>
+编写一个Blender Python脚本，自动检查目录下所有模型文件的多边形数量、贴图分辨率，并生成报告。</p>
+<details>
+<summary>💡 提示</summary>
+<p>使用bpy.data.meshes获取网格信息，bpy.data.images获取贴图信息。考虑使用CSV格式输出报告。</p>
+</details>
+<details>
+<summary>📝 参考答案</summary>
+<p>脚本功能要点：</p>
+<ol>
+<li>遍历指定目录的.blend文件</li>
+<li>加载每个文件并分析：
+   - 多边形数量统计
+   - 贴图尺寸检查
+   - 骨骼数量统计
+   - 材质槽位数量</li>
+<li>生成HTML或CSV格式报告</li>
+<li>标记超出规范的资产</li>
+<li>可选：自动优化简单问题</li>
+</ol>
+</details>
+<p><strong>练习1.6：模块化武器系统</strong>
+设计一个模块化的武器系统，可以通过组合不同部件快速生成新武器。至少包含3种刀刃、3种护手、3种握把。</p>
+<details>
+<summary>💡 提示</summary>
+<p>使用Collection Instance实现模块化，确保每个部件的连接点对齐。考虑使用自定义属性控制组合。</p>
+</details>
+<details>
+<summary>📝 参考答案</summary>
+<p>系统设计：</p>
+<ol>
+<li>标准化连接点（使用Empty作为锚点）</li>
+<li>每个部件独立Collection</li>
+<li>主控制器使用Custom Properties切换部件</li>
+<li>驱动器自动更新材质和属性</li>
+<li>预设系统保存常用组合</li>
+<li>自动命名系统根据部件组合生成名称</li>
+</ol>
+</details>
+<p><strong>练习1.7：权重自动传递系统</strong>
+创建一个工作流，能够将一个角色的权重自动传递到相似拓扑的其他角色上。</p>
+<details>
+<summary>💡 提示</summary>
+<p>使用Transfer Weights功能，但需要处理拓扑差异。考虑使用Shrinkwrap修改器对齐网格。</p>
+</details>
+<details>
+<summary>📝 参考答案</summary>
+<p>工作流程：</p>
+<ol>
+<li>创建标准参考模型和权重</li>
+<li>使用Shrinkwrap将新模型贴合到参考模型</li>
+<li>Transfer Weights传递权重</li>
+<li>手动微调问题区域</li>
+<li>保存权重预设供后续使用</li>
+<li>建立不同体型的权重模板库</li>
+</ol>
+</details>
+<p><strong>练习1.8：资产依赖关系图</strong>
+为一个包含5个角色、10种武器的项目创建资产依赖关系图，识别共享资源并优化。</p>
+<details>
+<summary>💡 提示</summary>
+<p>考虑贴图共享、材质复用、动画复用等。使用图表工具可视化依赖关系。</p>
+</details>
+<details>
+<summary>📝 参考答案</summary>
+<p>优化要点：</p>
+<ol>
+<li>识别共享贴图（如金属、布料通用贴图）</li>
+<li>建立材质库减少重复</li>
+<li>分析哪些动画可以在角色间共享</li>
+<li>创建LOD系统减少渲染负担</li>
+<li>使用实例化减少内存占用</li>
+<li>建立资产更新追踪系统</li>
+</ol>
+</details>
+<h2 id="_7">常见陷阱与错误</h2>
+<h3 id="1_1">🚫 陷阱1：过早优化模型</h3>
+<p><strong>问题</strong>：在动画需求明确前就过度优化模型，导致后期修改困难。</p>
+<p><strong>解决方案</strong>：</p>
+<ul>
+<li>保留高模作为源文件</li>
+<li>使用修改器非破坏性工作</li>
+<li>分阶段优化，动画确定后再做最终优化</li>
+</ul>
+<h3 id="2_1">🚫 陷阱2：忽视比例统一</h3>
+<p><strong>问题</strong>：不同资产使用不同的比例单位，导致合并场景时大小混乱。</p>
+<p><strong>解决方案</strong>：</p>
+<ul>
+<li>项目开始就确定统一单位（建议用米）</li>
+<li>创建参考物体（如1.7m的标准人物）</li>
+<li>导入新资产立即检查并调整比例</li>
+</ul>
+<h3 id="3_1">🚫 陷阱3：骨骼朝向不一致</h3>
+<p><strong>问题</strong>：骨骼的局部坐标轴朝向混乱，导致动画控制困难。</p>
+<p><strong>解决方案</strong>：</p>
+<ul>
+<li>统一使用相同的骨骼朝向（如Y轴沿骨骼方向）</li>
+<li>使用Recalculate Roll功能修正</li>
+<li>建立骨骼模板确保一致性</li>
+</ul>
+<h3 id="4_1">🚫 陷阱4：贴图通道混淆</h3>
+<p><strong>问题</strong>：不同软件间贴图通道定义不同，导致材质错误。</p>
+<p><strong>解决方案</strong>：</p>
+<ul>
+<li>明确定义每个通道的用途</li>
+<li>使用标准命名（如_BaseColor, _Normal, _Roughness）</li>
+<li>创建材质转换预设</li>
+</ul>
+<h3 id="5_1">🚫 陷阱5：版本管理混乱</h3>
+<p><strong>问题</strong>：没有清晰的版本记录，不知道哪个是最新文件。</p>
+<p><strong>解决方案</strong>：</p>
+<ul>
+<li>使用版本号而非日期</li>
+<li>保持更新日志</li>
+<li>定期归档旧版本</li>
+</ul>
+<hr />
+<p>准备工作虽然枯燥，但这是专业制作的基石。下一章，我们将开始激动人心的动作捕捉学习！</p>
+            </article>
+            
+            <nav class="page-nav"><a href="index.html" class="nav-link prev">← 原神风格打斗动画完全教程</a><a href="chapter2.html" class="nav-link next">第二章：动作捕捉与视频分析 →</a></nav>
+        </main>
+    </div>
+</body>
+</html>
