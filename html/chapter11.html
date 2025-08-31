@@ -150,19 +150,74 @@
 <li>中音（150-300Hz）：平衡、稳重、技巧型角色  </li>
 <li>高音（300-500Hz）：活泼、年轻、敏捷型角色</li>
 </ul>
-<p><strong>音色特质（Timbre）</strong></p>
-<ul>
-<li>清澈：纯真、善良的角色</li>
-<li>沙哑：经历沧桑、战斗经验丰富</li>
-<li>圆润：温柔、治愈系角色</li>
-<li>尖锐：狡猾、神秘的角色</li>
-</ul>
-<p><strong>说话节奏（Rhythm）</strong></p>
-<ul>
-<li>快速：急性子、活力充沛</li>
-<li>缓慢：沉稳、深思熟虑</li>
-<li>多变：情绪化、不稳定</li>
-</ul>
+<p><strong>音色特质（Timbre）- 频谱物理量表现</strong></p>
+<p>音色是由基频和泛音的相对强度决定的，可通过频谱分析量化：</p>
+<div class="codehilite"><pre><span></span><code>频谱特征分析：
+基频(f0) + 泛音序列(2f0, 3f0, 4f0...)的能量分布
+
+清澈音色：
+
+- 谐波结构：奇次谐波突出（3f0, 5f0, 7f0）
+- 频谱包络：2-4kHz区域能量集中
+- 谐波失真度(THD)：&lt;1%
+- 频谱重心：3500-4500Hz
+- 示例：正弦波接近的纯净度
+
+沙哑音色：
+
+- 谐波结构：次谐波成分明显（f0/2, f0/3）
+- 频谱包络：宽频噪声成分增加
+- 谐波失真度(THD)：5-15%
+- 频谱重心：1500-2500Hz
+- 抖动(Jitter)：&gt;1%（周期不规则性）
+- 闪动(Shimmer)：&gt;3%（振幅不规则性）
+
+圆润音色：
+
+- 谐波结构：偶次谐波丰富（2f0, 4f0, 6f0）
+- 频谱包络：低频能量充足，高频柔和衰减
+- 谐波失真度(THD)：2-3%（温暖的偶次失真）
+- 频谱重心：800-1500Hz
+- 共振峰：F1和F2间距适中
+
+尖锐音色：
+
+- 谐波结构：高次谐波强烈（&gt;10f0）
+- 频谱包络：5-8kHz区域能量突出
+- 谐波失真度(THD)：3-5%（奇次失真为主）
+- 频谱重心：4500-6000Hz
+- 频谱斜率：缓慢下降（-3dB/octave）
+</code></pre></div>
+
+<p><strong>说话节奏（Rhythm）- 时域物理量表现</strong></p>
+<p>节奏可通过时域分析和统计参数精确量化：</p>
+<div class="codehilite"><pre><span></span><code>节奏量化参数：
+
+快速节奏：
+
+- 语速：200-250字/分钟（中文）
+- 音节时长：150-200ms
+- 停顿率：&lt;10%（停顿时间/总时长）
+- 时长变异系数(CV)：&lt;0.2（规律性强）
+- 强度包络频率：3-5Hz（快速起伏）
+
+缓慢节奏：
+
+- 语速：100-150字/分钟（中文）
+- 音节时长：250-400ms
+- 停顿率：20-30%
+- 时长变异系数(CV)：0.3-0.5
+- 强度包络频率：1-2Hz（缓慢起伏）
+
+多变节奏：
+
+- 语速：100-250字/分钟（波动大）
+- 音节时长：150-500ms（范围广）
+- 停顿率：5-35%（不规则）
+- 时长变异系数(CV)：&gt;0.5（变化大）
+- 节奏熵(Rhythm Entropy)：&gt;2.5（混乱度高）
+</code></pre></div>
+
 <h3 id="1112">11.1.2 年龄层次的声音差异</h3>
 <p>不同年龄段的角色需要明显的声音区分：</p>
 <p><strong>少年角色（12-16岁）</strong></p>
@@ -689,6 +744,106 @@
 </code></pre></div>
 
 <h2 id="115">11.5 音频处理技术</h2>
+<h3 id="1150">11.5.0 频谱分析与测量工具</h3>
+<p>在进行音频处理前，理解和使用频谱分析工具是基础：</p>
+<p><strong>频谱分析仪（Spectrum Analyzer）设置</strong>：</p>
+<div class="codehilite"><pre><span></span><code>FFT参数配置：
+
+- FFT大小：4096-8192（频率分辨率vs时间分辨率平衡）
+- 窗函数：Hanning（通用）/Blackman（高精度）
+- 重叠率：50-75%（平滑度）
+- 频率范围：20Hz-20kHz（人耳听觉范围）
+- 显示模式：对数刻度（dB）
+
+频率分辨率 = 采样率 / FFT大小
+时间分辨率 = FFT大小 / 采样率
+
+示例（48kHz采样率，4096 FFT）：
+
+- 频率分辨率：11.7Hz
+- 时间分辨率：85ms
+</code></pre></div>
+
+<p><strong>声谱图（Spectrogram）读取</strong>：</p>
+<div class="codehilite"><pre><span></span><code>三维信息展示：
+
+- X轴：时间（秒）
+- Y轴：频率（Hz）
+- Z轴（颜色）：振幅（dB）
+
+颜色映射标准：
+
+- 红色：高能量（&gt;-20dB）
+- 黄色：中高能量（-20到-40dB）
+- 绿色：中等能量（-40到-60dB）
+- 蓝色：低能量（-60到-80dB）
+- 黑色：极低/无信号（&lt;-80dB）
+
+音色特征识别：
+
+- 水平线：持续音/共振峰
+- 垂直线：瞬态/打击音
+- 斜线：音调滑动/弯音
+- 点状：噪声/呼吸声
+</code></pre></div>
+
+<p><strong>实时分析仪表</strong>：</p>
+<div class="codehilite"><pre><span></span><code>峰值表（Peak Meter）：
+
+- 响应时间：&lt;10ms
+- 保持时间：2-3秒
+- 用途：防止削波
+
+RMS表（均方根）：
+
+- 积分时间：300ms
+- 用途：感知响度
+
+LUFS表（响度单位）：
+
+- 短期窗口：3秒
+- 综合窗口：整段
+- 用途：响度标准化
+
+相关性表（Correlation Meter）：
+
+- +1：完全同相（单声道）
+- 0：不相关（良好立体声）
+- -1：完全反相（相位问题）
+</code></pre></div>
+
+<p><strong>音色分析参数提取</strong>：</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 使用Librosa进行音色特征提取</span>
+<span class="kn">import</span> <span class="nn">librosa</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">analyze_timbre</span><span class="p">(</span><span class="n">audio_file</span><span class="p">):</span>
+    <span class="n">y</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">audio_file</span><span class="p">)</span>
+
+    <span class="c1"># 频谱重心</span>
+    <span class="n">spectral_centroid</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">spectral_centroid</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">)</span>
+
+    <span class="c1"># 频谱滚降点（95%能量）</span>
+    <span class="n">spectral_rolloff</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">spectral_rolloff</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">)</span>
+
+    <span class="c1"># 梅尔频率倒谱系数（音色特征）</span>
+    <span class="n">mfcc</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">mfcc</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">n_mfcc</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+
+    <span class="c1"># 零交叉率（噪声成分）</span>
+    <span class="n">zcr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">zero_crossing_rate</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="c1"># 频谱对比度（音色清晰度）</span>
+    <span class="n">spectral_contrast</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">spectral_contrast</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;centroid&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">spectral_centroid</span><span class="p">),</span>
+        <span class="s1">&#39;rolloff&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">spectral_rolloff</span><span class="p">),</span>
+        <span class="s1">&#39;mfcc&#39;</span><span class="p">:</span> <span class="n">mfcc</span><span class="p">,</span>
+        <span class="s1">&#39;zcr&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">zcr</span><span class="p">),</span>
+        <span class="s1">&#39;contrast&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">spectral_contrast</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre></div>
+
 <h3 id="1151">11.5.1 混响与空间感</h3>
 <p>混响是营造战斗环境氛围的关键：</p>
 <p><strong>室内战斗场景</strong></p>
@@ -872,63 +1027,634 @@
 
 <h3 id="1154">11.5.4 特效处理与滤波</h3>
 <p>特殊效果增强角色特征：</p>
-<p><strong>调制效果</strong></p>
-<div class="codehilite"><pre><span></span><code>合唱效果（Chorus）：
+<p><strong>调制效果（Modulation Effects）- 深度技术解析</strong></p>
+<p>调制效果通过周期性改变音频信号的某些参数来创造独特的声音质感。以下是各种调制效果的详细原理和应用：</p>
+<h3 id="chorus-">合唱效果（Chorus）- 多重声音的幻觉</h3>
+<p><strong>工作原理</strong>：</p>
+<div class="codehilite"><pre><span></span><code>信号流程：
+输入信号 → 分支1：原始信号
+         → 分支2：延迟线（20-30ms）+ LFO调制
+         → 分支3：延迟线（25-35ms）+ LFO调制（相位偏移）
+         → 混合输出
 
-- 用于：神秘角色、双重人格
-- Depth：30%
-- Rate：2Hz
-- Mix：20%
+数学模型：
+y(t) = x(t) + Σ[gᵢ × x(t - dᵢ(t))]
+其中：
 
-镶边效果（Flanger）：
-
-- 用于：机械角色、异界生物
-- Depth：50%
-- Rate：0.5Hz
-- Feedback：30%
-
-相位效果（Phaser）：
-
-- 用于：魔法咏唱、能量聚集
-- Stages：4
-- Rate：1Hz
-- Depth：40%
+- dᵢ(t) = d₀ + A × sin(2πfₘt + φᵢ)
+- d₀ = 基础延迟（20-30ms）
+- A = 调制深度（±5ms）
+- fₘ = 调制频率（0.5-5Hz）
+- φᵢ = 相位偏移（多声部）
 </code></pre></div>
 
-<p><strong>失真效果</strong></p>
-<div class="codehilite"><pre><span></span><code>轻微失真：
+<p><strong>参数详解</strong>：</p>
+<div class="codehilite"><pre><span></span><code>基础参数：
 
-- 用于：愤怒咆哮
-- Drive：20%
-- Tone：5kHz
+<span class="k">-</span> Delay Time：20-30ms（短延迟避免回声感）
+<span class="k">-</span> Depth：调制深度（0-100%）
+  <span class="k">*</span> 30% = ±1.5ms延迟变化（温和）
+  <span class="k">*</span> 60% = ±3ms延迟变化（明显）
+  <span class="k">*</span> 100% = ±5ms延迟变化（极端）
+<span class="k">-</span> Rate：LFO频率（0.1-10Hz）
+  <span class="k">*</span> 0.5Hz：缓慢飘动
+  <span class="k">*</span> 2Hz：标准合唱
+  <span class="k">*</span> 5Hz：快速颤动
+<span class="k">-</span> Mix：干湿比（0-100%）
+  <span class="k">*</span> 20% = 细微增厚
+  <span class="k">*</span> 50% = 明显合唱
+  <span class="k">*</span> 100% = 纯效果音
+
+高级参数：
+
+<span class="k">-</span> Voices：声部数量（2-8）
+<span class="k">-</span> Spread：立体声宽度（0-100%）
+<span class="k">-</span> Pre-delay：初始延迟（0-100ms）
+<span class="k">-</span> Feedback：反馈量（0-50%）
+<span class="k">-</span> Phase：LFO相位差（0-180°）
+</code></pre></div>
+
+<p><strong>应用场景与设置</strong>：</p>
+<div class="codehilite"><pre><span></span><code>神秘角色声线：
+
+- Voices：3-4
+- Depth：25%
+- Rate：1.5Hz
 - Mix：15%
+- Spread：80%
+效果：飘渺、空灵
 
-重度失真：
+双重人格表现：
 
-- 用于：怪物嘶吼
-- Drive：60%
-- Tone：2kHz
+- Voices：2
+- Depth：40%
+- Rate：0.8Hz
+- Mix：30%
+- Phase：180°（反相）
+效果：内心冲突感
+
+天使/精灵音效：
+
+- Voices：6-8
+- Depth：20%
+- Rate：3Hz
+- Mix：25%
+- Pre-delay：10ms
+效果：神圣、轻盈
+</code></pre></div>
+
+<h3 id="flanger-">镶边效果（Flanger）- 梳状滤波的动态变化</h3>
+<p><strong>工作原理</strong>：</p>
+<div class="codehilite"><pre><span></span><code>信号流程：
+输入 → 分支1：原始信号
+     → 分支2：延迟线（0.5-10ms）+ LFO调制 + 反馈
+     → 相位相消/相长 → 输出
+
+数学模型：
+y(t) = x(t) + g × x(t - d(t)) + fb × y(t - d(t))
+其中：
+
+- d(t) = d₀ + A × sin(2πfₘt)
+- d₀ = 基础延迟（1-5ms）
+- fb = 反馈系数（-0.9 到 +0.9）
+
+频率响应（梳状滤波）：
+凹陷频率：fₙ = (2n-1)/(2d)
+峰值频率：fₚ = n/d
+</code></pre></div>
+
+<p><strong>参数深度解析</strong>：</p>
+<div class="codehilite"><pre><span></span><code>核心参数：
+
+<span class="k">-</span> Delay：0.5-10ms（极短延迟）
+  <span class="k">*</span> 0.5-2ms：金属质感
+  <span class="k">*</span> 2-5ms：经典镶边
+  <span class="k">*</span> 5-10ms：接近合唱
+<span class="k">-</span> Depth：调制深度
+  <span class="k">*</span> 50% = ±50%延迟变化
+  <span class="k">*</span> 产生扫频效果
+<span class="k">-</span> Rate：LFO速率
+  <span class="k">*</span> 0.1Hz：缓慢扫动
+  <span class="k">*</span> 0.5Hz：标准镶边
+  <span class="k">*</span> 2Hz：快速震荡
+<span class="k">-</span> Feedback：反馈量（-99% 到 +99%）
+  <span class="k">*</span> 正反馈：增强共振
+  <span class="k">*</span> 负反馈：相位反转
+  <span class="k">*</span> 30% = 温和共振
+  <span class="k">*</span> 70% = 强烈金属感
+  <span class="k">*</span> 95% = 接近自激
+
+调制波形选择：
+
+<span class="k">-</span> Sine：平滑扫动
+<span class="k">-</span> Triangle：线性扫动
+<span class="k">-</span> Sawtooth：单向扫动
+<span class="k">-</span> Square：突变效果
+<span class="k">-</span> Random：随机镶边
+</code></pre></div>
+
+<p><strong>特征频谱分析</strong>：</p>
+<div class="codehilite"><pre><span></span><code>梳状滤波特性：
+
+- 凹陷间隔 = 1/延迟时间
+- 2ms延迟 → 500Hz间隔
+- 5ms延迟 → 200Hz间隔
+
+谐振峰分布：
+第1凹陷：250Hz（2ms延迟）
+第1峰值：500Hz
+第2凹陷：750Hz
+第2峰值：1000Hz
+...持续到奈奎斯特频率
+</code></pre></div>
+
+<p><strong>应用场景设置</strong>：</p>
+<div class="codehilite"><pre><span></span><code>机械/机器人角色：
+
+- Delay：1.5ms
+- Depth：60%
+- Rate：0.3Hz
+- Feedback：50%
 - Mix：40%
+效果：金属质感、冰冷
+
+异界生物：
+
+- Delay：3ms
+- Depth：80%
+- Rate：0.7Hz
+- Feedback：-40%（负反馈）
+- Mix：35%
+效果：诡异、不稳定
+
+喷气引擎音效：
+
+- Delay：7ms
+- Depth：100%
+- Rate：0.2Hz
+- Feedback：70%
+- Mix：60%
+效果：呼啸、动态
+</code></pre></div>
+
+<h3 id="phaser-">相位器（Phaser）- 全通滤波的级联</h3>
+<p><strong>工作原理</strong>：</p>
+<div class="codehilite"><pre><span></span><code>信号流程：
+输入 → 全通滤波器1 → 全通滤波器2 → ... → 全通滤波器N
+    ↓                                      ↓
+    └──────────────混合──────────────────┘
+
+全通滤波器传递函数：
+H(z) = (a + z⁻¹)/(1 + a×z⁻¹)
+其中a由LFO控制
+
+相位响应：
+φ(ω) = -2×arctan[(a×sin(ω))/(1 + a×cos(ω))]
+</code></pre></div>
+
+<p><strong>参数系统</strong>：</p>
+<div class="codehilite"><pre><span></span><code>基础参数：
+
+<span class="k">-</span> Stages：级数（2-24）
+  <span class="k">*</span> 2级：温和效果
+  <span class="k">*</span> 4级：经典相位
+  <span class="k">*</span> 8级：深度调制
+  <span class="k">*</span> 12+级：极端效果
+<span class="k">-</span> Rate：LFO频率
+  <span class="k">*</span> 0.1-0.5Hz：缓慢扫动
+  <span class="k">*</span> 1Hz：标准效果
+  <span class="k">*</span> 2-5Hz：快速调制
+<span class="k">-</span> Depth：调制深度（0-100%）
+  <span class="k">*</span> 控制频率扫动范围
+  <span class="k">*</span> 40% = 200Hz-2kHz扫动
+<span class="k">-</span> Feedback：反馈（-99% 到 +99%）
+  <span class="k">*</span> 增强谐振特性
+  <span class="k">*</span> 50% = 明显共振
+
+高级参数：
+
+<span class="k">-</span> Center Freq：中心频率（200Hz-4kHz）
+<span class="k">-</span> Frequency Range：扫频范围
+<span class="k">-</span> Stereo Phase：左右声道相位差
+<span class="k">-</span> Mix：干湿比
+</code></pre></div>
+
+<p><strong>频谱特征</strong>：</p>
+<div class="codehilite"><pre><span></span><code>凹陷数量 = Stages/2
+4级相位器 → 2个凹陷
+8级相位器 → 4个凹陷
+
+凹陷位置随LFO动态变化：
+最低频率 = Center × (1 - Depth)
+最高频率 = Center × (1 + Depth)
+</code></pre></div>
+
+<p><strong>典型应用</strong>：</p>
+<div class="codehilite"><pre><span></span><code>魔法咏唱：
+
+- Stages：6
+- Rate：1.2Hz
+- Depth：35%
+- Center：800Hz
+- Feedback：40%
+- Mix：30%
+效果：神秘、流动
+
+能量聚集：
+
+- Stages：8
+- Rate：2Hz（加速）
+- Depth：50%（逐渐增大）
+- Feedback：60%（渐强）
+- Mix：渐变0→50%
+效果：能量累积感
+
+迷幻效果：
+
+- Stages：12
+- Rate：0.3Hz
+- Depth：70%
+- Feedback：80%
+- Mix：45%
+效果：眩晕、迷离
+</code></pre></div>
+
+<h3 id="tremolo-">颤音效果（Tremolo）- 振幅调制</h3>
+<p><strong>工作原理</strong>：</p>
+<div class="codehilite"><pre><span></span><code>y(t) = x(t) × [1 + m × sin(2πfₘt)]
+其中：
+
+- m = 调制深度（0-1）
+- fₘ = 调制频率（0.1-20Hz）
+</code></pre></div>
+
+<p><strong>参数设置</strong>：</p>
+<div class="codehilite"><pre><span></span><code>- Rate：1-10Hz（颤动速度）
+- Depth：0-100%（强度）
+- Waveform：调制波形
+- Stereo Phase：立体声相位
+
+应用：
+紧张颤抖：Rate=8Hz, Depth=30%
+情绪波动：Rate=3Hz, Depth=50%
+</code></pre></div>
+
+<h3 id="vibrato-">振动效果（Vibrato）- 音高调制</h3>
+<p><strong>工作原理</strong>：</p>
+<div class="codehilite"><pre><span></span><code>y(t) = x(t - d₀ - A×sin(2πfₘt))
+音高变化 = ±A/d₀ × 100%
+</code></pre></div>
+
+<p><strong>参数配置</strong>：</p>
+<div class="codehilite"><pre><span></span><code>- Rate：4-7Hz（标准振动）
+- Depth：±50音分
+- Delay：初始延迟
+
+应用：
+歌唱振音：Rate=5Hz, Depth=±30音分
+弦乐表现：Rate=6Hz, Depth=±20音分
+</code></pre></div>
+
+<h3 id="ring-modulation-">环形调制（Ring Modulation）- 频率混合</h3>
+<p><strong>工作原理</strong>：</p>
+<div class="codehilite"><pre><span></span><code>y(t) = x(t) × sin(2πfct)
+产生和频与差频：f₁±fc
+</code></pre></div>
+
+<p><strong>应用场景</strong>：</p>
+<div class="codehilite"><pre><span></span><code>机器人声音：fc=200Hz
+外星人语音：fc=500Hz
+金属打击：fc=1kHz
+</code></pre></div>
+
+<p><strong>失真效果（Distortion）- 非线性物理量分析</strong></p>
+<p>失真是信号非线性处理的结果，可通过多种物理量精确描述：</p>
+<div class="codehilite"><pre><span></span><code>失真的物理量化参数：
+
+轻微失真（愤怒咆哮）：
+
+- 总谐波失真(THD)：3-8%
+- 互调失真(IMD)：2-4%
+- 奇次谐波比例：60%（3f0, 5f0为主）
+- 偶次谐波比例：40%（2f0, 4f0为辅）
+- 传递函数：y = x + 0.1x³（软削波）
+- 动态范围压缩：6dB
+- 频谱展宽：原始带宽×1.5
+- Drive：20%
+- Tone：5kHz（高频增强）
+- Mix：15%（干湿比）
+
+中度失真（战斗怒吼）：
+
+- 总谐波失真(THD)：10-20%
+- 互调失真(IMD)：5-10%
+- 谐波生成：可达15次谐波
+- 非线性系数：0.3-0.5
+- 传递函数：y = tanh(2x)（对称限幅）
+- 动态范围压缩：12dB
+- 频谱密度：中频段增厚
+- Drive：40%
+- Tone：3kHz
+- Mix：25%
+
+重度失真（怪物嘶吼）：
+
+- 总谐波失真(THD)：25-40%
+- 互调失真(IMD)：15-25%
+- 谐波生成：可达30次谐波
+- 非线性系数：0.6-0.8
+- 传递函数：y = sign(x)×|x|^0.5（硬削波）
+- 动态范围压缩：18dB
+- 频谱展宽：原始带宽×3
+- 噪声底升高：+12dB
+- Drive：60%
+- Tone：2kHz（中频突出）
+- Mix：40%
+
+极限失真（恶魔音效）：
+
+- 总谐波失真(THD)：&gt;50%
+- 互调失真(IMD)：&gt;30%
+- 白噪声成分：20-30%
+- 传递函数：y = sign(x)（方波化）
+- 动态范围压缩：24dB
+- 频谱：接近白噪声
+- 混沌度：&gt;0.7
+- Drive：100%
+- Tone：1kHz（低频轰鸣）
+- Mix：60%
+</code></pre></div>
+
+<p><strong>失真类型的频谱特征</strong>：</p>
+<div class="codehilite"><pre><span></span><code>管式失真（Tube Distortion）：
+
+- 偶次谐波为主（2f0, 4f0, 6f0）
+- 频谱特征：温暖、圆润
+- THD分布：2nd(5%), 3rd(2%), 4th(1%)
+- 相位失真：最小
+- 应用：成熟角色的力量感
+
+晶体管失真（Transistor Distortion）：
+
+- 奇次谐波为主（3f0, 5f0, 7f0）
+- 频谱特征：明亮、锐利
+- THD分布：3rd(7%), 5th(3%), 7th(1%)
+- 相位失真：中等
+- 应用：年轻角色的爆发力
+
+数字失真（Digital Distortion）：
+
+- 混叠噪声（Aliasing）
+- 量化噪声（Quantization）
+- 频谱特征：粗糙、颗粒感
+- 比特深度降低：16bit→8bit
+- 采样率降低：48kHz→8kHz
+- 应用：机械/电子角色
+
+磁带饱和（Tape Saturation）：
+
+- 软削波特性
+- 频谱特征：压缩、平滑
+- 磁滞曲线：S型非线性
+- 高频衰减：-3dB/octave &gt; 10kHz
+- 应用：复古、怀旧效果
+</code></pre></div>
+
+<h3 id="_2">调制效果的组合应用</h3>
+<p><strong>效果链设计原则</strong>：</p>
+<div class="codehilite"><pre><span></span><code>信号流优化顺序：
+
+1. EQ（频率修正）
+2. 压缩（动态控制）
+3. 调制效果（音色塑造）
+4. 失真（谐波生成）
+5. 延迟/混响（空间感）
+6. 限制器（最终保护）
+</code></pre></div>
+
+<p><strong>经典组合方案</strong>：</p>
+<div class="codehilite"><pre><span></span><code>幽灵/鬼魂角色链：
+EQ（削减500Hz-2kHz）→ Chorus（4声部）→ Phaser（8级）→ Reverb（大厅）
+参数：
+
+- EQ：-6dB @ 1kHz，Q=2
+- Chorus：Rate=0.8Hz, Depth=30%, Mix=25%
+- Phaser：Rate=0.5Hz, Depth=60%, Feedback=40%
+- Reverb：RT60=3s, Pre-delay=50ms, Mix=40%
+
+机械战士链：
+Ring Mod（200Hz）→ Flanger → Distortion → Filter
+参数：
+
+- Ring Mod：载波200Hz，Mix=30%
+- Flanger：Delay=2ms, Feedback=60%, Rate=0.3Hz
+- Distortion：Drive=40%, Tone=3kHz
+- Filter：Band-pass 500Hz-3kHz
+
+元素精灵链：
+Pitch Shift（+12音分）→ Chorus → Tremolo → Delay
+参数：
+
+- Pitch：+12音分，保持共振峰
+- Chorus：6声部，Spread=100%
+- Tremolo：Rate=4Hz, Depth=20%
+- Delay：Dotted 8th, Feedback=30%
+</code></pre></div>
+
+<p><strong>动态调制控制</strong>：</p>
+<div class="codehilite"><pre><span></span><code>战斗阶段性变化：
+第一阶段（正常）：
+
+- 无调制效果
+
+第二阶段（觉醒）：
+
+- Phaser逐渐淡入
+- Rate: 0→1Hz
+- Depth: 0→30%
+
+第三阶段（暴走）：
+
+- 添加Flanger
+- Distortion渐强
+- 所有Rate×2
+
+第四阶段（极限）：
+
+- Ring Modulation
+- 极度失真
+- 随机LFO
 </code></pre></div>
 
 <p><strong>滤波器应用</strong></p>
-<div class="codehilite"><pre><span></span><code>高通滤波：
+<h3 id="_3">滤波器类型与特性</h3>
+<p><strong>高通滤波（High-Pass Filter）</strong>：</p>
+<div class="codehilite"><pre><span></span><code>传递函数：
+H(s) = s/(s + ωc)
+其中ωc = 2πfc（截止频率）
 
-- 频率：80Hz（男性）/100Hz（女性）
-- 斜率：12dB/Oct
-- 用途：消除低频噪音
+参数设置：
 
-低通滤波：
+<span class="k">-</span> 频率：80Hz（男性）/100Hz（女性）
+<span class="k">-</span> 斜率：
+  <span class="k">*</span> 6dB/Oct（1阶）：温和
+  <span class="k">*</span> 12dB/Oct（2阶）：标准
+  <span class="k">*</span> 24dB/Oct（4阶）：陡峭
+  <span class="k">*</span> 48dB/Oct（8阶）：极陡
+<span class="k">-</span> 共振Q值：0.7（平坦）到10（共振峰）
 
-- 频率：8kHz（远距离）/12kHz（近距离）
-- 斜率：24dB/Oct
-- 用途：模拟距离感
+应用场景：
 
-带通滤波：
+1. 消除低频噪音（80-120Hz）
+2. 增加清晰度（200Hz）
+3. 模拟电话效果（300Hz）
+4. 消除近讲效应（100Hz）
+</code></pre></div>
+
+<p><strong>低通滤波（Low-Pass Filter）</strong>：</p>
+<div class="codehilite"><pre><span></span><code>传递函数：
+H(s) = ωc/(s + ωc)
+
+参数配置：
+
+- 近距离：12kHz（保留细节）
+- 中距离：8kHz（轻微衰减）
+- 远距离：4kHz（明显闷声）
+- 墙后：2kHz（严重衰减）
+- 斜率：24dB/Oct（自然衰减）
+
+距离模拟公式：
+fc = 20000 × e^(-distance/50)
+（距离单位：米）
+</code></pre></div>
+
+<p><strong>带通滤波（Band-Pass Filter）</strong>：</p>
+<div class="codehilite"><pre><span></span><code>组合结构：
+HPF(fc1) → LPF(fc2)
+或使用二阶带通：
+H(s) = (ωc×s)/(s² + (ωc/Q)×s + ωc²)
+
+典型应用：
+电话效果：
 
 - 中心频率：2kHz
 - Q值：2.0
-- 用途：电话效果、通讯器
+- 带宽：1kHz
+
+对讲机：
+
+- 中心：1.5kHz
+- Q值：4.0
+- 带宽：500Hz
+
+老旧广播：
+
+- 中心：1kHz
+- Q值：1.5
+- 添加噪声
+</code></pre></div>
+
+<p><strong>带阻滤波（Notch Filter）</strong>：</p>
+<div class="codehilite"><pre><span></span><code>用途：消除特定频率
+
+- 50/60Hz电源哼声
+- 特定共振频率
+- 啸叫抑制
+
+参数：
+
+- 中心频率：精确定位
+- Q值：10-100（越高越窄）
+- 衰减：-20到-∞dB
+</code></pre></div>
+
+<p><strong>梳状滤波（Comb Filter）</strong>：</p>
+<div class="codehilite"><pre><span></span><code>y(t) = x(t) + g×x(t-D)
+
+特性：
+
+- 峰值频率：n/D
+- 凹陷频率：(2n-1)/(2D)
+- 用于创造金属音色
+</code></pre></div>
+
+<h3 id="parametric-eq">参数均衡器（Parametric EQ）</h3>
+<p><strong>完整参数系统</strong>：</p>
+<div class="codehilite"><pre><span></span><code>每个频段包含：
+
+1. 频率（Frequency）：20Hz-20kHz
+2. 增益（Gain）：±18dB
+3. Q值/带宽（Q/Bandwidth）：0.1-20
+4. 滤波器类型：Bell/Shelf/Pass
+
+Q值与带宽关系：
+Bandwidth(octaves) = 2×sinh⁻¹(1/(2Q))/ln(2)
+Q = 0.667 → 2 octaves
+Q = 1.414 → 1 octave
+Q = 2.871 → 1/2 octave
+Q = 4.318 → 1/3 octave
+</code></pre></div>
+
+<p><strong>战斗场景EQ预设</strong>：</p>
+<div class="codehilite"><pre><span></span><code>洞穴战斗：
+
+- 80Hz：+4dB，Q=2（轰鸣感）
+- 500Hz：-3dB，Q=1（减少混浊）
+- 2kHz：+2dB，Q=3（清晰度）
+- 8kHz：-4dB，Q=1（柔化高频）
+
+开阔平原：
+
+- 100Hz：-2dB，Q=1（减少低频）
+- 1kHz：+1dB，Q=2（存在感）
+- 5kHz：+3dB，Q=1（空气感）
+- 12kHz：+2dB，Shelf（明亮）
+
+水下战斗：
+
+- LPF：3kHz，24dB/Oct
+- 200Hz：+6dB，Q=2（闷声）
+- 800Hz：+3dB，Q=3（共鸣）
+</code></pre></div>
+
+<h3 id="_4">动态滤波器</h3>
+<p><strong>自动哇音（Auto-Wah）</strong>：</p>
+<div class="codehilite"><pre><span></span><code>触发源：
+
+- 包络跟随器
+- LFO
+- MIDI控制
+
+参数：
+
+- Sensitivity：触发灵敏度
+- Range：扫频范围
+- Attack：上升时间
+- Release：下降时间
+
+应用：
+funk吉他效果
+说话机器人
+动态扫频
+</code></pre></div>
+
+<p><strong>包络滤波器（Envelope Filter）</strong>：</p>
+<div class="codehilite"><pre><span></span><code>信号包络 → 控制滤波器截止频率
+
+设置示例：
+攻击增强：
+
+- Attack：1ms
+- Decay：50ms
+- Range：500Hz-5kHz
+- Q：4
+
+自动表情：
+
+- Attack：10ms
+- Decay：200ms
+- Range：200Hz-2kHz
+- Q：2
 </code></pre></div>
 
 <p><strong>创意效果链</strong></p>
@@ -945,9 +1671,9 @@
    音调降低 → 失真 → EQ（增强低频） → 混响（大厅）
 </code></pre></div>
 
-<h2 id="_2">本章小结</h2>
+<h2 id="_5">本章小结</h2>
 <p>本章系统地探讨了角色声线与音效设计的完整流程。我们学习了如何根据角色的年龄、性格和文化背景设计独特的声线特征，掌握了战斗语音的节奏控制和情绪表达技巧，了解了各种受击反应的声音层次，并深入研究了专业的音频处理技术。</p>
-<h3 id="_3">核心要点回顾</h3>
+<h3 id="_6">核心要点回顾</h3>
 <ol>
 <li><strong>声线设计基础</strong>：音调、音色、节奏三要素决定角色声音特征</li>
 <li><strong>战斗语音系统</strong>：攻击喊叫、技能咏唱、呼吸控制的有机结合</li>
@@ -955,15 +1681,102 @@
 <li><strong>情绪动态变化</strong>：战斗状态与声音表现的实时对应关系</li>
 <li><strong>音频处理技术</strong>：混响、均衡、压缩、特效的综合运用</li>
 </ol>
-<h3 id="_4">关键公式与参数</h3>
+<h3 id="_7">关键公式与参数</h3>
+<p><strong>声学基础公式</strong>：</p>
 <ul>
 <li><strong>基频范围公式</strong>：<code>基频 = 年龄系数 × 性别系数 × 个性调整</code></li>
-<li><strong>混响时间计算</strong>：<code>RT60 = 0.161 × V/A</code>（V=体积，A=吸收面积）</li>
-<li><strong>压缩比设置</strong>：<code>输出变化 = 输入变化 / 压缩比</code></li>
-<li><strong>响度标准</strong>：游戏音频 -16 LUFS，峰值 -1dB True Peak</li>
+<li>年龄系数：<code>1.5 - (age/100)</code></li>
+<li>性别系数：男性1.0，女性1.8-2.2</li>
+<li>
+<p>个性调整：±20%</p>
+</li>
+<li>
+<p><strong>混响时间计算</strong>：<code>RT60 = 0.161 × V/A</code>（V=体积m³，A=吸收面积m²）</p>
+</li>
+<li>Sabine公式：<code>RT60 = 0.161V/(S×α)</code></li>
+<li>
+<p>S=总表面积，α=平均吸收系数</p>
+</li>
+<li>
+<p><strong>压缩比设置</strong>：<code>输出变化 = 输入变化 / 压缩比</code></p>
+</li>
+<li>动态范围：<code>DR = 20×log₁₀(峰值/均值)</code></li>
 </ul>
-<h2 id="_5">练习题</h2>
-<h3 id="_6">基础题（理解与应用）</h3>
+<p><strong>频谱分析公式</strong>：</p>
+<ul>
+<li><strong>频谱重心（Spectral Centroid）</strong>：</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>SC = Σ(f × A(f)) / Σ(A(f))
+其中：f=频率，A(f)=该频率的振幅
+</code></pre></div>
+
+<ul>
+<li><strong>谐波失真度（THD）</strong>：</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>THD = √(V₂² + V₃² + V₄² + ...) / V₁ × 100%
+其中：V₁=基频振幅，Vₙ=第n次谐波振幅
+</code></pre></div>
+
+<ul>
+<li><strong>频谱斜率（Spectral Slope）</strong>：</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>SS = (Σf×Σlog(A) - N×Σ(f×log(A))) / (Σf² - N×(Σf)²)
+单位：dB/octave
+</code></pre></div>
+
+<ul>
+<li><strong>抖动率（Jitter）</strong>：</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>Jitter = (1/N)×Σ|Tᵢ - Tᵢ₋₁| / T̄ × 100%
+其中：T=周期时长
+</code></pre></div>
+
+<ul>
+<li><strong>闪动率（Shimmer）</strong>：</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>Shimmer = (1/N)×Σ|Aᵢ - Aᵢ₋₁| / Ā × 100%
+其中：A=振幅
+</code></pre></div>
+
+<p><strong>音色量化指标</strong>：</p>
+<ul>
+<li><strong>共振峰频率</strong>：</li>
+<li>F1（第一共振峰）：250-700Hz（元音区分）</li>
+<li>F2（第二共振峰）：700-2500Hz（音色特征）</li>
+<li>
+<p>F3（第三共振峰）：2500-3500Hz（个体特征）</p>
+</li>
+<li>
+<p><strong>频谱包络参数</strong>：</p>
+</li>
+<li>亮度（Brightness）：<code>B = Σ(A(f&gt;fc)) / Σ(A(f))</code>，fc=截止频率</li>
+<li>粗糙度（Roughness）：20-200Hz调制深度</li>
+<li>尖锐度（Sharpness）：高频能量比例</li>
+</ul>
+<p><strong>节奏量化指标</strong>：</p>
+<ul>
+<li><strong>节奏规律性（Pairwise Variability Index）</strong>：</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>PVI = 100×Σ|dᵢ - dᵢ₊₁| / ((n-1)×d̄)
+其中：d=音节时长
+</code></pre></div>
+
+<ul>
+<li><strong>语速计算</strong>：</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>语速 = (音节数 - 停顿数) / (总时长 - 停顿时长)
+单位：音节/秒 或 字/分钟
+</code></pre></div>
+
+<p><strong>响度标准</strong>：</p>
+<ul>
+<li>游戏音频：-16 LUFS（综合响度）</li>
+<li>峰值限制：-1dB True Peak</li>
+<li>动态范围：7-15 LU（响度单位）</li>
+<li>瞬时响度：-10 LUFS（战斗高潮）</li>
+</ul>
+<h2 id="_8">练习题</h2>
+<h3 id="_9">基础题（理解与应用）</h3>
 <p><strong>练习1：角色声线设计</strong>
 为以下角色设计声线参数：一位18岁的活泼女剑士，来自蒙德地区，性格开朗直率。</p>
 <details>
@@ -1043,7 +1856,7 @@
 <li>特征：高频衰减明显，竹叶沙沙声</li>
 </ul>
 </details>
-<h3 id="_7">挑战题（设计与创新）</h3>
+<h3 id="_10">挑战题（设计与创新）</h3>
 <p><strong>练习5：复合情绪声线设计</strong>
 设计一个角色在"假装镇定但内心恐惧"状态下的声音表现，包括声线特征、处理参数和台词示例。</p>
 <details>
@@ -1295,7 +2108,7 @@
 - 环境音：持续包围
 </code></pre></div>
 
-<h3 id="_8">调试技巧</h3>
+<h3 id="_11">调试技巧</h3>
 <ol>
 <li><strong>A/B测试</strong>：准备多版本对比</li>
 <li><strong>疲劳测试</strong>：长时间播放检查</li>
